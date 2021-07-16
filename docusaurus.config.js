@@ -6,7 +6,7 @@ module.exports = {
     title: '学习大使',
     tagline: '学习大使',
     url: 'https://github.com/richardgong1987-learn/richardgong1987-learn',
-    baseUrl: '/',
+    baseUrl: '/richardgong1987-learn/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
