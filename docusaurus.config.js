@@ -5,7 +5,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
     title: '学习大使',
     tagline: '学习大使',
-    url: 'https://your-docusaurus-test-site.com',
+    url: 'https://github.com/richardgong1987-learn/richardgong1987-learn',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
