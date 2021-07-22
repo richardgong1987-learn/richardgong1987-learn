@@ -261,4 +261,4 @@ for each digit placing
 
 
 
-![image](https://upload-images.jianshu.io/upload_images/1940317-047a907d162a4a0b.gif?imageMogr2/auto-orient/strip)
+![image](asserts/images/strip-20210722173120814.gif)
