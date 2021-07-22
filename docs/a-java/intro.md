@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Java架构师
+# Java架构师学习内容目录
 
 1. ###  [java并发编程](a-java-concurrent/intro) 
 
