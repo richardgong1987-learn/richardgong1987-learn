@@ -6,7 +6,9 @@ sidebar_position: 1
 
 ## 1.冒泡排序
 
-特点:每次循环,通过挨个对比相邻的两个元素找出最大的排到最后面
+**特点:**
+
+每次循环,通过挨个对比相邻的两个元素,并交换位置,最终每一轮它都会找出最大的排到最后面
 
 ![image](asserts/images/strip-20210722172149013.gif)
 
@@ -29,27 +31,30 @@ while swapped
 
 ## 2.选择排序
 
-**特点**
+**原理:**
 
-跟冒泡排序相反:
+它只是每次从一组中**选择最(小/大)**的数,取出来,按排序add到array里.
 
-它是每次是查找**最小**的;
+```java
+        var list = new ArrayList<>(List.of(5, 3, 4, 7, 2));
+        var result = new ArrayList<Integer>();
 
-**不同的是:**
+        while (!list.isEmpty()) {
+            /**
+             * looking min item
+             */
+            var max = Collections.min(list);
+            /**
+             * add to result 
+             */
+            result.add(max);
 
-选择排序不排序相邻的两个数,它只是每次挨个**选择最小**的数跟自己替换
 
+            list.remove(max);
+        }
+        System.out.println(result);
 
-
-**步骤:**
-
-1.第1元素,向后挨个对比.如果遇到比第1个元素小的.就交换位置
-
-2.第2元素,向后挨个对比.如果遇到比第2个元素小的.就交换位置
-
-3.第3元素,向后挨个对比.如果遇到比第3个元素小的.就交换位置
-
-...
+```
 
 ![image](asserts/images/strip-20210722172131496.gif)
 
@@ -57,47 +62,23 @@ while swapped
 
 
 
-```java
-repeat (numOfElements - 1) times
 
-  set the first unsorted element as the minimum
-
-  for each of the unsorted elements
-
-    if element < currentMinimum
-
-      set element as new minimum
-
- swap minimum with first unsorted position
-```
 
 
 
 ## 3.插入排序
 
-**特点:**
-
-它是先把第一个元素作为基准.
-
- 跟冒泡排序有点像. 容易混淆. 
-
-但主要区别在于:
-
-- 冒泡排序只是移动相邻的两个元素. 
-
-- 插入排序是每次都跟前面的元素进行挨个对比,然后,插入到这
-
-  
-
 **步骤:**
 
-从第2元素开始,挨个跟前面的元素对比. 如果有比自己小的.就交换位置. 插入到这
+它是先把第二个元素开始.
 
-从第3元素开始,挨个跟前面的元素对比. 如果有比自己小的.就交换位置.插入到这
+- 看一下自己的前面的元素是否大于自己,
+- 如果大于自己就继续往前查找,
+- 直接找到比自己小的元素前插入.
 
-从第4元素开始,挨个跟前面的元素对比. 如果有比自己小的.就交换位置.插入到这 
 
-....
+
+
 
 ![image](asserts/images/strip-20210722172049933.gif)
 
