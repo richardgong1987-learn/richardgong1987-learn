@@ -2,9 +2,15 @@
 sidebar_position: 1
 ---
 
+
+
 # 各种排序
 
 ## 1.冒泡排序
+
+### 2.冒泡排序
+
+#### 3.冒泡排序
 
 **特点:**
 
@@ -45,7 +51,7 @@ while swapped
              */
             var max = Collections.min(list);
             /**
-             * add to result 
+             * add to result
              */
             result.add(max);
 
@@ -187,21 +193,21 @@ https://www.bilibili.com/video/BV1at411T75o/?spm_id_from=autoNext
 
   ```java
   create key (counting) array
-  
+
   for each element in list
-  
+
     increase the respective counter by 1
-  
+
   for each counter, starting from smallest key
-  
+
     while counter is non-zero
-  
+
       restore element to list
-  
+
       decrease counter by 1
   ```
 
-  
+
 
 ## 7.基数排序
 

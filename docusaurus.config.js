@@ -20,12 +20,6 @@ module.exports = {
                 src: 'img/logo.svg',
             },
             items: [
-                // {
-                //     type: 'doc',
-                //     docId: 'intro',
-                //     position: 'left',
-                //     label: 'Tutorial',
-                // },
                 {
                     type: 'doc',
                     docId: 'a-java/intro',
