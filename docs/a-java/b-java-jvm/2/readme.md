@@ -1,7 +1,20 @@
 ---
 sidebar_position: 222
 ---
+
 # 垃圾收回
+
+## [2_垃圾回收.pdf](2_垃圾回收.pdf)
+
+1. 如何判断对象可以回收
+
+2. 垃圾回收算法
+
+3. 分代垃圾回收
+
+4. 垃圾回收器
+
+5. 垃圾回收调优
 
 ## 1.如何判断对象可以回收
 
@@ -116,7 +129,7 @@ Java 虚拟机中的垃圾回收器采用可达性分析来探索所有存活的
 
 ### 3.1 相关 VM 参数
 
- 含义参数
+含义参数
 
 [![image-20200712172615432](asserts/images/image-20200712172615432.png)](https://github.com/richardgong1987-learn/learn-jvm/blob/master/images/gc/image-20200712172615432.png)
 
@@ -160,7 +173,7 @@ jdk1.8默认使用.
 
 -XX:+UseParallelGC ~ -XX:+UseParallelOldGC
 
- 复制算法 标记加整理算法
+复制算法 标记加整理算法
 
 -XX:+UseAdaptiveSizePolicy
 
@@ -316,10 +329,10 @@ CMS收回器
 
 - 如果它们值一样，让它们引用同一个 char[]
 
-  - 注意，与 String.intern() 不一样
-  - String.intern() 关注的是字符串对象
-  - 而字符串去重关注的是 char[]
-  - 在 JVM 内部，使用了不同的字符串表
+    - 注意，与 String.intern() 不一样
+    - String.intern() 关注的是字符串对象
+    - 而字符串去重关注的是 char[]
+    - 在 JVM 内部，使用了不同的字符串表
 
 #### 9) JDK 8u40 并发标记类卸载
 
@@ -347,11 +360,11 @@ G1 会跟踪老年代所有 incoming 引用，这样老年代 incoming 引用为
 
 - JDK 9 可以动态调整
 
-  - -XX:InitiatingHeapOccupancyPercent 用来设置初始值
-  - 进行数据采样并动态调整
-  - 总会添加一个安全的空档空间
+    - -XX:InitiatingHeapOccupancyPercent 用来设置初始值
+    - 进行数据采样并动态调整
+    - 总会添加一个安全的空档空间
 
-  #### 
+  ####   
 
 #### 12) JDK 9 更高效的回收
 
@@ -384,25 +397,25 @@ G1 会跟踪老年代所有 incoming 引用，这样老年代 incoming 引用为
 答案是:不发生 GC,才是最快的GC
 
 - 查看 FullGC 前后的内存占用，考虑下面几个问题
-  - 数据是不是太多？
-    - resultSet = statement.executeQuery("select * from 大表 limit n")
-  - 数据表示是否太臃肿？
-    - 对象图
-    - 对象大小 16 Integer 24 int 4
-  - 是否存在内存泄漏？
-    - static Map map =
-    - 软
-    - 弱
-    - 第三方缓存实现
+    - 数据是不是太多？
+        - resultSet = statement.executeQuery("select * from 大表 limit n")
+    - 数据表示是否太臃肿？
+        - 对象图
+        - 对象大小 16 Integer 24 int 4
+    - 是否存在内存泄漏？
+        - static Map map =
+        - 软
+        - 弱
+        - 第三方缓存实现
 
 ### 5.4 新生代调优
 
 - 新生代的特点
-  - 所有的 new 操作的内存分配非常廉价
-    - TLAB thread-local allocation buffer
-  - 死亡对象的回收代价是零
-  - 大部分对象用过即死
-  - Minor GC 的时间远远低于 Full GC
+    - 所有的 new 操作的内存分配非常廉价
+        - TLAB thread-local allocation buffer
+    - 死亡对象的回收代价是零
+    - 大部分对象用过即死
+    - Minor GC 的时间远远低于 Full GC
 - 越大越好吗？
 
 -Xmn Sets the initial and maximum size (in bytes) of the heap for the young generation (nursery).
@@ -433,8 +446,6 @@ than 50% of the overall heap size.
   - age 3: 1425912 bytes, 31784800 total
   ```
 
-  
-
 ### 5.5 老年代调优
 
 以 CMS 为例
@@ -442,7 +453,7 @@ than 50% of the overall heap size.
 - CMS 的老年代内存越大越好
 - 先尝试不做调优，如果没有 Full GC 那么已经...，否则先尝试调优新生代
 - 观察发生 Full GC 时老年代内存占用，将老年代内存预设调大 1/4 ~ 1/3
-  - -XX:CMSInitiatingOccupancyFraction=percent
+    - -XX:CMSInitiatingOccupancyFraction=percent
 
 ### 5.6 案例
 
