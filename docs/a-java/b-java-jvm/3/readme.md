@@ -730,6 +730,166 @@ public class Candy11 {
 
 ## 4.类加载阶段
 
+### 4.1 加载
+
+- 将类的字节码载入方法区中，内部采用 C++ 的 instanceKlass 描述 java 类，它的重要 field 有：
+  - _java_mirror 即 java 的类镜像，例如对 String 来说，就是 String.class，作用是把 klass 暴 露给 java 使用
+  - _super 即父类
+  - _fields 即成员变量 
+  - _methods 即方法 
+  - _constants 即常量池
+  -  _class_loader 即类加载器 
+  - _vtable 虚方法表
+  -  _itable 接口方法表
+
+- 如果这个类还有父类没有加载，先加载父类 
+- 加载和链接可能是交替运行的
+
+![image-20210908231409876](asserts/images/image-20210908231409876.png)
+
+### 4.2 链接
+
+#### 验证
+
+验证类是否符合 JVM规范，安全性检查 用 UE 等支持二进制的编辑器修改 HelloWorld.class 的魔数，在控制台运行
+
+
+
+### 4.3 初始化
+
+###  \<cinit\> \(\)V方法
+
+初始化即调用\<cinit\> \(\)V，虚拟机会保证这个类的『构造方法』的线程安全
+
+
+
+#### 发生的时机
+
+概括得说，类初始化是【懒惰的】
+
+- main 方法所在的类，总会被首先初始化
+-  首次访问这个类的静态变量或静态方法时 
+- 子类初始化，如果父类还没初始化，会引发 
+- 子类访问父类的静态变量，只会触发父类的初始化
+-  Class.forName new 会导致初始化
+
+
+
+不会导致类初始化的情况
+
+- 访问类的 static final 静态常量（基本类型和字符串）不会触发初始化
+-  类对象.class 不会触发初始化 
+- 创建该类的数组不会触发初始化
+
+
+
 ## 5.类加载器
 
+### 5.1 启动类加载器
+
+用 Bootstrap 类加载器加载类：
+
+![image-20210908231905888](asserts/images/image-20210908231905888.png)
+
+执行 
+
+![image-20210908231925608](asserts/images/image-20210908231925608.png)
+
+输出:
+
+![image-20210908231935525](asserts/images/image-20210908231935525.png)
+
+- -Xbootclasspath 表示设置 bootclasspath 
+
+- 其中 /a:. 表示将当前目录追加至 bootclasspath 之后 
+
+- 可以用这个办法替换核心类 
+
+  - java-Xbootclasspath:\<newbootclasspath\> 
+
+  - java-Xbootclasspath/a:<追加路径> 
+
+  - java-Xbootclasspath/p:<追加路径>
+
+
+
+
+
+### 5.2 扩展类加载器
+
+![image-20210908232606027](asserts/images/image-20210908232606027.png)
+
+执行
+
+![image-20210908232613953](asserts/images/image-20210908232613953.png)
+
+输出
+
+```
+classpathGinit 
+sun.misc.Launcher$AppClassLoader@18b4aac2
+```
+
+
+
+### 5.3 双亲委派模式
+
+#### 所谓的双亲委派，就是指调用类加载器的 loadClass 方法时，查找类的规则
+
+appClassLoader>ExtClassLoader>BootstrapClassLoader => appClassLoader.findClass
+
+
+
+### 5.4 线程上下文类加载器
+
+Thread.currentThread().getContextClassLoader();
+
+### 5.5 自定义类加载器
+
+问问自己，什么时候需要自定义类加载器
+
+- 1）想加载非 classpath 随意路径中的类文件
+
+- 2）都是通过接口来使用实现，希望解耦时，常用在框架设计
+
+- 3）这些类希望予以隔离，不同应用的同名类都可以加载，不冲突，常见于 tomcat 容器
+
+
+
 ## 6.运行期优化
+
+### 6.1 即时编译
+
+#### 分层编译
+
+
+
+### 即时编译器（JIT）与解释器的区别
+
+解释器是将字节码解释为机器码，下次即使遇到相同的字节码，仍会执行重复的解释
+
+- JIT 是将一些字节码编译为机器码，并存入 Code Cache，下次遇到相同的代码，直接执行，无需 再编译
+
+- 解释器是将字节码解释为针对所有平台都通用的机器码
+
+- JIT 会根据平台类型，生成平台特定的机器码
+
+
+
+### 方法内联（Inlining）
+
+![image-20210908235153920](asserts/images/image-20210908235153920.png)
+
+如果发现 square 是热点方法，并且长度不太长时，会进行内联，所谓的内联就是把方法内代码拷贝、 粘贴到调用者的位置：
+
+```java
+System.out.println(9*9);
+```
+
+还能够进行常量折叠（constant folding）的优化
+
+
+
+### 字段优化
+
+### 6.2 反射优化
