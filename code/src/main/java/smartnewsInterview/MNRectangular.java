@@ -1,4 +1,4 @@
-package ch6.part6;
+package smartnewsInterview;
 
 /**
  * https://github.com/kritijain2269/IslandProblem

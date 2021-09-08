@@ -1,4 +1,4 @@
-package ch6.part7;
+package leetcode;
 
 import java.util.Arrays;
 import java.util.HashMap;

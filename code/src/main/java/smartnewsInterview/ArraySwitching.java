@@ -1,4 +1,4 @@
-package ch6.part6;
+package smartnewsInterview;
 
 /**
  * An array is called "switching" if the odd and even elements are equal.
