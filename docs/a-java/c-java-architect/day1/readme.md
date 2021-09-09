@@ -2,7 +2,7 @@
 
 # 1 微服务基础知识
 
-![img]()
+
 
 ## 1.1 系统架构的演变
 
@@ -120,7 +120,7 @@ SOA 全称为 Service-Oriented Architecture，即面向服务的架构。它可�
 
 ### 1.1.5 SOA与微服务的关系
 
-![img]()**SOA**（ Service Oriented Architecture ）“面向服务的架构”:他是一种设计方法，其中包含多个服务， 服务之间通过相互依赖最终提供一系列的功能。一个服务 通常以独立的形式存在与操作系统进程中。各个服务之间 通过网络调用。
+**SOA**（ Service Oriented Architecture ）“面向服务的架构”:他是一种设计方法，其中包含多个服务， 服务之间通过相互依赖最终提供一系列的功能。一个服务 通常以独立的形式存在与操作系统进程中。各个服务之间 通过网络调用。
 
 **微服务架构****:**其实和 SOA 架构类似,微服务是在 SOA 上做的升华，微服务架构强调的一个重点是“业务需要彻底的组件化和服务化”，原有的单个业务系统会拆分为多个可以独立开发、设计、运行的小应用。 这些小应用之间通过服务完成交互和集成。
 
@@ -209,7 +209,7 @@ REST，即Representational State Transfer的缩写，如果一个架构符合RES
 
 现如今，对于多数大型互联网应用，分布式系统（distributed   system）正变得越来越重要。分布式系统的最大难点，就是各个节点的状态如何同步。CAP 定理是这方面的基本定理，也是理解分布式系统的起点。
 
-![img]()CAP理论由 Eric Brewer 在ACM研讨会上提出，而后CAP被奉为分布式领域的重要理论。分布式系统的
+CAP理论由 Eric Brewer 在ACM研讨会上提出，而后CAP被奉为分布式领域的重要理论。分布式系统的
 
 CAP理论，首先把分布式系统中的三个特性进行了如下归纳：
 
@@ -431,7 +431,7 @@ CAP理论，首先把分布式系统中的三个特性进行了如下归纳：
 
 # 3 案例搭建
 
-![img]()
+
 
 使用微服务架构的分布式系统,微服务之间通过网络通信。我们通过服务提供者与服务消费者来描述微服 务间的调用关系。
 
@@ -461,7 +461,7 @@ CAP理论，首先把分布式系统中的三个特性进行了如下归纳：
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -475,7 +475,7 @@ CAP理论，首先把分布式系统中的三个特性进行了如下归纳：
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -487,7 +487,7 @@ CAP理论，首先把分布式系统中的三个特性进行了如下归纳：
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
@@ -495,13 +495,13 @@ CAP理论，首先把分布式系统中的三个特性进行了如下归纳：
 
 （1） 创建父工程shop_parent
 
-![img]()在IDEA中创建父工程 shop_parent 并引入坐标
+在IDEA中创建父工程 shop_parent 并引入坐标
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -509,139 +509,141 @@ CAP理论，首先把分布式系统中的三个特性进行了如下归纳：
 
 
 
-![img]()![img](asserts/images/clip_image003.jpg)<dependency>
+![img](asserts/images/clip_image003.jpg)
 
-<groupId>org.springframework.cloud</groupId>
+\<dependency\>
 
-<artifactId>spring-cloud-dependencies</artifactId>
+\<groupId\>org.springframework.cloud\</groupId\>
 
-<version>Greenwich.RELEASE</version>
+\<artifactId\>spring-cloud-dependencies\</artifactId\>
 
-<type>pom</type>
+\<version\>Greenwich.RELEASE\</version\>
 
-<scope>import</scope>
+\<type\>pom\</type\>
 
-</dependency>
+\<scope\>import\</scope\>
 
-</dependencies>
+\</dependency\>
 
-</dependencyManagement>
+\</dependencies\>
 
- 
-
- 
-
-<repositories>
-
-<repository>
-
-<id>spring-snapshots</id>
-
-<name>Spring Snapshots</name>
-
-<url>http://repo.spring.io/libs-snapshot-local</url>
-
-<snapshots>
-
-<enabled>true</enabled>
-
-</snapshots>
-
-</repository>
-
-<repository>
-
-<id>spring-milestones</id>
-
-<name>Spring Milestones</name>
-
-<url>http://repo.spring.io/libs-milestone-local</url>
-
-<snapshots>
-
-<enabled>false</enabled>
-
-</snapshots>
-
-</repository>
-
-<repository>
-
-<id>spring-releases</id>
-
-<name>Spring Releases</name>
-
-<url>http://repo.spring.io/libs-release-local</url>
-
-<snapshots>
-
-<enabled>false</enabled>
-
-</snapshots>
-
-</repository>
-
-</repositories>
-
-<pluginRepositories>
-
-<pluginRepository>
-
-<id>spring-snapshots</id>
-
-<name>Spring Snapshots</name>
-
-<url>http://repo.spring.io/libs-snapshot-local</url>
-
-<snapshots>
-
-<enabled>true</enabled>
-
-</snapshots>
-
-</pluginRepository>
-
-<pluginRepository>
-
-<id>spring-milestones</id>
-
-<name>Spring Milestones</name>
-
-<url>http://repo.spring.io/libs-milestone-local</url>
-
-<snapshots>
-
-<enabled>false</enabled>
-
-</snapshots>
-
-</pluginRepository>
-
-</pluginRepositories>
+\</dependencyManagement\>
 
  
 
  
 
-<build>
+\<repositories\>
 
-<plugins>
+\<repository\>
 
-<plugin>
+\<id\>spring-snapshots\</id\>
+
+\<name\>Spring Snapshots\</name\>
+
+\<url\>http://repo.spring.io/libs-snapshot-local\</url\>
+
+\<snapshots\>
+
+\<enabled\>true\</enabled\>
+
+\</snapshots\>
+
+\</repository\>
+
+\<repository\>
+
+\<id\>spring-milestones\</id\>
+
+\<name\>Spring Milestones\</name\>
+
+\<url\>http://repo.spring.io/libs-milestone-local\</url\>
+
+\<snapshots\>
+
+\<enabled\>false\</enabled\>
+
+\</snapshots\>
+
+\</repository\>
+
+\<repository\>
+
+\<id\>spring-releases\</id\>
+
+\<name\>Spring Releases\</name\>
+
+\<url\>http://repo.spring.io/libs-release-local\</url\>
+
+\<snapshots\>
+
+\<enabled\>false\</enabled\>
+
+\</snapshots\>
+
+\</repository\>
+
+\</repositories\>
+
+\<pluginRepositories\>
+
+\<pluginRepository\>
+
+\<id\>spring-snapshots\</id\>
+
+\<name\>Spring Snapshots\</name\>
+
+\<url\>http://repo.spring.io/libs-snapshot-local\</url\>
+
+\<snapshots\>
+
+\<enabled\>true\</enabled\>
+
+\</snapshots\>
+
+\</pluginRepository\>
+
+\<pluginRepository\>
+
+\<id\>spring-milestones\</id\>
+
+\<name\>Spring Milestones\</name\>
+
+\<url\>http://repo.spring.io/libs-milestone-local\</url\>
+
+\<snapshots\>
+
+\<enabled\>false\</enabled\>
+
+\</snapshots\>
+
+\</pluginRepository\>
+
+\</pluginRepositories\>
+
+ 
+
+ 
+
+\<build\>
+
+\<plugins\>
+
+\<plugin\>
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
 （2） 创建微服务工程模块
 
-![img](asserts/images/clip_image032.jpg)![img]()![img](asserts/images/clip_image033.jpg)![img]()创建公共模块 shop_service_common ,用于存放公共的实体类和工具类创建订单微服务模块 shop_service_order
+![img](asserts/images/clip_image032.jpg)![img](asserts/images/clip_image033.jpg)创建公共模块 shop_service_common ,用于存放公共的实体类和工具类创建订单微服务模块 shop_service_order
 
-![img](asserts/images/clip_image034.jpg)![img]()创建商品微服务模块 shop_service_product
+![img](asserts/images/clip_image034.jpg)创建商品微服务模块 shop_service_product
 
-![img](asserts/images/clip_image035.jpg)![img]()创建用户微服务模块 shop_service_user
+![img](asserts/images/clip_image035.jpg)创建用户微服务模块 shop_service_user
 
 （3） 设置依赖
 
@@ -665,13 +667,13 @@ CAP理论，首先把分布式系统中的三个特性进行了如下归纳：
 
 ### 3.3.1 编写实体类
 
-![img]()在shop_service_common中创建 cn.itcast.entity.Product 实体类,并配置
+在shop_service_common中创建 cn.itcast.entity.Product 实体类,并配置
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -685,13 +687,13 @@ Lombok能以简单的注解形式来简化java代码，提高开发人员的开�
 
 ### 3.3.2 编写dao接口
 
-![img]()在shop_service_product中创建 cn.itcast.product.dao.ProductDao 接口
+在shop_service_product中创建 cn.itcast.product.dao.ProductDao 接口
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -701,13 +703,13 @@ Lombok能以简单的注解形式来简化java代码，提高开发人员的开�
 
 ### 3.3.3 编写service层
 
-![img]()在shop_service_product中创建  cn.itcast.product.service.ProductService
+在shop_service_product中创建  cn.itcast.product.service.ProductService
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -715,13 +717,13 @@ Lombok能以简单的注解形式来简化java代码，提高开发人员的开�
 
  
 
-![img]()在shop_service_product中创建 cn.itcast.product.service.ProductServiceImpl 实现类
+在shop_service_product中创建 cn.itcast.product.service.ProductServiceImpl 实现类
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -729,19 +731,19 @@ Lombok能以简单的注解形式来简化java代码，提高开发人员的开�
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
 ### 3.3.4 编写web层
 
-![img]()在shop_service_product中创建  cn.itcast.product.controller.ProductController
+在shop_service_product中创建  cn.itcast.product.controller.ProductController
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -755,13 +757,13 @@ Lombok能以简单的注解形式来简化java代码，提高开发人员的开�
 
 
 
-![img]()![img](asserts/images/clip_image003.jpg)在shop_service_product中创建 cn.itcast.product.ProductApplication 启动类
+![img](asserts/images/clip_image003.jpg)在shop_service_product中创建 cn.itcast.product.ProductApplication 启动类
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -775,7 +777,7 @@ Lombok能以简单的注解形式来简化java代码，提高开发人员的开�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -827,13 +829,13 @@ RestTemplate默认依赖JDK提供http连接的能力（HttpURLConnection），�
 
 **3.5.3** **通过****RestTemplate****调用微服务**
 
-（1） ![img]()在 shop_service_order工程中ProductApplication启动类 中配置RestTemplate
+（1） 在 shop_service_order工程中ProductApplication启动类 中配置RestTemplate
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -847,7 +849,7 @@ RestTemplate默认依赖JDK提供http连接的能力（HttpURLConnection），�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -869,7 +871,7 @@ RestTemplate默认依赖JDK提供http连接的能力（HttpURLConnection），�
 
 # 3 服务注册Eureka基础
 
-![img]()
+
 
 ## 3.1 微服务的注册中心
 
@@ -1004,7 +1006,7 @@ Eureka是Netﬂix开发的服务发现框架，SpringCloud将它集成在自己�
 
 #### (1) 创建shop_eureka_server子模块
 
-![img]()![img]()在 shop_parent 下创建子模块 shop_eureka_server
+在 shop_parent 下创建子模块 shop_eureka_server
 
 #### (2) 引入maven坐标
 
@@ -1012,7 +1014,7 @@ Eureka是Netﬂix开发的服务发现框架，SpringCloud将它集成在自己�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1024,7 +1026,7 @@ Eureka是Netﬂix开发的服务发现框架，SpringCloud将它集成在自己�
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
@@ -1036,13 +1038,13 @@ serviceUrlEureka:  客户端与Eureka服务端进行交互的地址
 
 #### (4) 配置启动类
 
-![img]()![img]()在 cn.itcast.eureka 下创建启动类 EurekaServerApplication
+在 cn.itcast.eureka 下创建启动类 EurekaServerApplication
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1075,23 +1077,23 @@ http://localhost8761
 
 (1)   商品模块中引入坐标
 
-![img]()在 shop_service_product 的pom文件中添加eureka client的相关坐标
+在 shop_service_product 的pom文件中添加eureka client的相关坐标
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
 (2)  配置application.yml文件
 
-![img]()在工程的 application.yml 中添加Eureka Server的主机地址
+在工程的 application.yml 中添加Eureka Server的主机地址
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1105,7 +1107,7 @@ http://localhost8761
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1113,19 +1115,19 @@ http://localhost8761
 
  
 
-![img](asserts/images/clip_image051.jpg)![img]()![img]()从Spring Cloud Edgware版本开始， @EnableDiscoveryClient 或 @EnableEurekaClient **可省略**。只需加上相关依赖，并进行相应配置，即可将微服务注册到服务发现组件上。
+![img](asserts/images/clip_image051.jpg)从Spring Cloud Edgware版本开始， @EnableDiscoveryClient 或 @EnableEurekaClient **可省略**。只需加上相关依赖，并进行相应配置，即可将微服务注册到服务发现组件上。
 
 ### 3.4.2 订单服务注册
 
-![img]()和商品微服务一样,只需要引入坐标依赖,在工程的 application.yml 中添加Eureka Server的主机地址即可
+和商品微服务一样,只需要引入坐标依赖,在工程的 application.yml 中添加Eureka Server的主机地址即可
 
 ### 3.4.3 用户服务注册
 
-![img]()和商品微服务一样,只需要引入坐标依赖,在工程的 application.yml 中添加Eureka Server的主机地址即可
+和商品微服务一样,只需要引入坐标依赖,在工程的 application.yml 中添加Eureka Server的主机地址即可
 
 ## 3.5 Eureka中的自我保护
 
-![img]()![img]()微服务第一次注册成功之后，每30秒会发送一次心跳将服务的实例信息注册到注册中心。通知 Eureka Server 该实例仍然存在。如果超过90秒没有发送更新，则服务器将从注册信息中将此服务移除。
+微服务第一次注册成功之后，每30秒会发送一次心跳将服务的实例信息注册到注册中心。通知 Eureka Server 该实例仍然存在。如果超过90秒没有发送更新，则服务器将从注册信息中将此服务移除。
 
 Eureka   Server在运行期间，会统计心跳失败的比例在15分钟之内是否低于85%，如果出现低于的情况
 
@@ -1137,7 +1139,7 @@ Eureka   Server在运行期间，会统计心跳失败的比例在15分钟之内
 
 验证完自我保护机制开启后，并不会马上呈现到web上，而是默认需等待 5  分钟（可以通过
 
-![img]()eureka.server.wait-time-in-ms-when-sync-empty 配置），即 5 分钟后你会看到下面的提示信息：
+eureka.server.wait-time-in-ms-when-sync-empty 配置），即 5 分钟后你会看到下面的提示信息：
 
  
 
@@ -1151,7 +1153,7 @@ Eureka   Server在运行期间，会统计心跳失败的比例在15分钟之内
 
 #### 如果关闭自我保护
 
-![img]()通过设置 eureka.enableSelfPreservation=false 来关闭自我保护功能。
+通过设置 eureka.enableSelfPreservation=false 来关闭自我保护功能。
 
 ## 3.6 Eureka中的元数据
 
@@ -1167,7 +1169,7 @@ Eureka的元数据有两种：标准元数据和自定义元数据。
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1209,7 +1211,7 @@ Eureka Server可以通过运行多个实例并相互注册的方式实现高可�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1217,13 +1219,13 @@ Eureka Server可以通过运行多个实例并相互注册的方式实现高可�
 
  
 
-**（2）** ![img]()**修改** shop_eureka_server **工程中的****yml****配置文件，添加如下配置属性**
+**（2）** **修改** shop_eureka_server **工程中的****yml****配置文件，添加如下配置属性**
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1231,7 +1233,7 @@ Eureka Server可以通过运行多个实例并相互注册的方式实现高可�
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
@@ -1261,13 +1263,13 @@ Eureka Server可以通过运行多个实例并相互注册的方式实现高可�
 
 ### 4.1.2 服务注册到Eureka Server集群
 
-![img]()![img]()如果需要将微服务注册到Eureka  Server集群只需要修改yml配置文件即可
+如果需要将微服务注册到Eureka  Server集群只需要修改yml配置文件即可
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1295,7 +1297,7 @@ Eureka Server可以通过运行多个实例并相互注册的方式实现高可�
 
  
 
-![img]()大致含义：服务的注册涉及到心跳，默认心跳间隔为30s。在实例、服务器、客户端都在本地缓存中具 有相同的元数据之前，服务不可用于客户端发现（所以可能需要3次心跳）。可以通过配置eureka.instance.leaseRenewalIntervalInSeconds (心跳频率)加快客户端连接到其他服务的过
+大致含义：服务的注册涉及到心跳，默认心跳间隔为30s。在实例、服务器、客户端都在本地缓存中具 有相同的元数据之前，服务不可用于客户端发现（所以可能需要3次心跳）。可以通过配置eureka.instance.leaseRenewalIntervalInSeconds (心跳频率)加快客户端连接到其他服务的过
 
 程。在生产中，最好坚持使用默认值，因为在服务器内部有一些计算，他们对续约做出假设。
 
@@ -1311,7 +1313,7 @@ Eureka Server可以通过运行多个实例并相互注册的方式实现高可�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1327,7 +1329,7 @@ Eureka Server可以通过运行多个实例并相互注册的方式实现高可�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1341,7 +1343,7 @@ Eureka Server可以通过运行多个实例并相互注册的方式实现高可�
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
@@ -1367,7 +1369,7 @@ ImportSelector接口是Spring导入外部配置的核心接口，在SpringBoot�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1381,7 +1383,7 @@ DeferredImportSelector接口继承ImportSelector,他和ImportSelector的区别�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1397,7 +1399,7 @@ DeferredImportSelector接口继承ImportSelector,他和ImportSelector的区别�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1411,7 +1413,7 @@ DeferredImportSelector接口继承ImportSelector,他和ImportSelector的区别�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1425,7 +1427,7 @@ DeferredImportSelector接口继承ImportSelector,他和ImportSelector的区别�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1439,7 +1441,7 @@ DeferredImportSelector接口继承ImportSelector,他和ImportSelector的区别�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1453,7 +1455,7 @@ DeferredImportSelector接口继承ImportSelector,他和ImportSelector的区别�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1471,7 +1473,7 @@ DeferredImportSelector接口继承ImportSelector,他和ImportSelector的区别�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1489,11 +1491,11 @@ for (SourceClass candidate : importCandidates)
 
 if (candidate.isAssignable(ImportSelector.class)) {
 
-// Candidate class is an ImportSelector -> delegate to
+// Candidate class is an ImportSelector -\> delegate to
 
 it to determine imports
 
-Class<?> candidateClass = candidate.loadClass(); ImportSelector selector =
+Class\<?\> candidateClass = candidate.loadClass(); ImportSelector selector =
 
 BeanUtils.instantiateClass(candidateClass, ImportSelector.class);
 
@@ -1521,7 +1523,7 @@ String[] importClassNames =
 
 selector.selectImports(currentSourceClass.getMetadata());
 
-Collection<SourceClass> importSourceClasses = asSourceClasses(importClassNames);
+Collection\<SourceClass\> importSourceClasses = asSourceClasses(importClassNames);
 
 processImports(configClass, currentSourceClass,
 
@@ -1537,7 +1539,7 @@ else if (candidate.isAssignable(ImportBeanDefinitionRegistrar.class)) {
 
 
 
-\> 
+\\> 
 
  
 
@@ -1557,13 +1559,13 @@ definitions
 
  
 
-Class<?> candidateClass = candidate.loadClass(); ImportBeanDefinitionRegistrar registrar =
+Class\<?\> candidateClass = candidate.loadClass(); ImportBeanDefinitionRegistrar registrar =
 
 BeanUtils.instantiateClass(candidateClass,
 
 
 
-![img]()![img](asserts/images/clip_image003.jpg)ImportBeanDefinitionRegistrar.class);
+![img](asserts/images/clip_image003.jpg)ImportBeanDefinitionRegistrar.class);
 
 ParserStrategyUtils.invokeAwareMethods( registrar, this.environment,
 
@@ -1577,7 +1579,7 @@ else {             // 如果当前的类既不是
 
 ImportSelector也不是ImportBeanDefinitionRegistar就进行@Configuration的解析处理
 
-// Candidate class not an ImportSelector or ImportBeanDefinitionRegistrar ->
+// Candidate class not an ImportSelector or ImportBeanDefinitionRegistrar -\>
 
 // process it as an @Configuration class this.importStack.registerImport(
 
@@ -1591,7 +1593,7 @@ processConfigurationClass(candidate.asConfigClass(configClass));
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
@@ -1609,7 +1611,7 @@ SpringBoot开箱即用的特点，很大程度上归功于ImportSelector。接�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1617,11 +1619,11 @@ SpringBoot开箱即用的特点，很大程度上归功于ImportSelector。接�
 
  
 
-![img]()在SpringBootApplication注解中声明了一个  @EnableAutoConfiguration
+在SpringBootApplication注解中声明了一个  @EnableAutoConfiguration
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
@@ -1629,7 +1631,7 @@ SpringBoot开箱即用的特点，很大程度上归功于ImportSelector。接�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 在EnableAutoConﬁguration中通过Import引入了SpringBoot定义的
@@ -1642,7 +1644,7 @@ SpringBoot开箱即用的特点，很大程度上归功于ImportSelector。接�
 
  
 
-![img]()public class AutoConfigurationImportSelector
+public class AutoConfigurationImportSelector
 
 implements DeferredImportSelector, BeanClassLoaderAware, ResourceLoaderAware,
 
@@ -1686,7 +1688,7 @@ if (!isEnabled(annotationMetadata)) { return EMPTY_ENTRY;
 
 AnnotationAttributes attributes = getAttributes(annotationMetadata);
 
-//通过getCandidateConfigurations方法获取所有需要加载的bean List<String> configurations =
+//通过getCandidateConfigurations方法获取所有需要加载的bean List\<String\> configurations =
 
 getCandidateConfigurations(annotationMetadata,
 
@@ -1696,7 +1698,7 @@ attributes);
 
 configurations = removeDuplicates(configurations);
 
-//获取不需要加载的bean,这里我们可以通过spring.autoconfigure.exclude人为配置Set<String> exclusions = getExclusions(annotationMetadata, attributes); checkExcludedClasses(configurations, exclusions); configurations.removeAll(exclusions);
+//获取不需要加载的bean,这里我们可以通过spring.autoconfigure.exclude人为配置Set\<String\> exclusions = getExclusions(annotationMetadata, attributes); checkExcludedClasses(configurations, exclusions); configurations.removeAll(exclusions);
 
 configurations = filter(configurations, autoConfigurationMetadata);
 
@@ -1704,7 +1706,7 @@ configurations = filter(configurations, autoConfigurationMetadata);
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
@@ -1712,17 +1714,17 @@ configurations = filter(configurations, autoConfigurationMetadata);
 
  
 
-![img]()public final class SpringFactoriesLoader {
+public final class SpringFactoriesLoader {
 
 public static final String FACTORIES_RESOURCE_LOCATION = "META- INF/spring.factories";
 
 private static final Log logger = LogFactory.getLog(SpringFactoriesLoader.class);
 
-private static final Map<ClassLoader, MultiValueMap<String, String>> cache = new ConcurrentReferenceHashMap();
+private static final Map\<ClassLoader, MultiValueMap\<String, String\>\> cache = new ConcurrentReferenceHashMap();
 
  
 
-public static List<String> loadFactoryNames(Class<?> factoryClass, @Nullable ClassLoader classLoader) {
+public static List\<String\> loadFactoryNames(Class\<?\> factoryClass, @Nullable ClassLoader classLoader) {
 
 String factoryClassName = factoryClass.getName();
 
@@ -1738,9 +1740,9 @@ String factoryClassName = factoryClass.getName();
 
  
 
-private static Map<String, List<String>> loadSpringFactories(@Nullable ClassLoader classLoader) {
+private static Map\<String, List\<String\>\> loadSpringFactories(@Nullable ClassLoader classLoader) {
 
-MultiValueMap<String, String> result = (MultiValueMap)cache.get(classLoader);
+MultiValueMap\<String, String\> result = (MultiValueMap)cache.get(classLoader);
 
 if (result != null) { return result;
 
@@ -1748,7 +1750,7 @@ if (result != null) { return result;
 
 try {
 
-//获取工程中所有META-INF/spring.factories文件,将其中的键值组合成Map Enumeration<URL> urls = classLoader != null ?
+//获取工程中所有META-INF/spring.factories文件,将其中的键值组合成Map Enumeration\<URL\> urls = classLoader != null ?
 
 classLoader.getResources("META-INF/spring.factories") : ClassLoader.getSystemResources("META-INF/spring.factories");
 
@@ -1764,7 +1766,7 @@ URL url = (URL)urls.nextElement();
 
 
 
-![img]()![img](asserts/images/clip_image003.jpg)UrlResource resource = new UrlResource(url); Properties properties =
+![img](asserts/images/clip_image003.jpg)UrlResource resource = new UrlResource(url); Properties properties =
 
 PropertiesLoaderUtils.loadProperties(resource);
 
@@ -1776,7 +1778,7 @@ Iterator var6 = properties.entrySet().iterator();
 
 while(var6.hasNext()) {
 
-Entry<?, ?> entry = (Entry)var6.next(); String factoryClassName =
+Entry\<?, ?\> entry = (Entry)var6.next(); String factoryClassName =
 
 ((String)entry.getKey()).trim();
 
@@ -1788,7 +1790,7 @@ int var10 = var9.length;
 
  
 
-for(int var11 = 0; var11 < var10; ++var11) { String factoryName = var9[var11];
+for(int var11 = 0; var11 \< var10; ++var11) { String factoryName = var9[var11];
 
 result.add(factoryClassName, factoryName.trim());
 
@@ -1814,11 +1816,11 @@ throw new IllegalArgumentException("Unable to load factories from location [META
 
  
 
-private static <T> T instantiateFactory(String instanceClassName, Class<T> factoryClass, ClassLoader classLoader) {
+private static \<T\> T instantiateFactory(String instanceClassName, Class\<T\> factoryClass, ClassLoader classLoader) {
 
 try {
 
-Class<?> instanceClass = ClassUtils.forName(instanceClassName, classLoader);
+Class\<?\> instanceClass = ClassUtils.forName(instanceClassName, classLoader);
 
 if (!factoryClass.isAssignableFrom(instanceClass)) {
 
@@ -1850,11 +1852,11 @@ throw new IllegalArgumentException("Unable to instantiate factory class: " + fac
 
 #### 4.3.2.1 EnableEurekaServer注解作用
 
-![img]()通过 @EnableEurekaServer 激活EurekaServer
+通过 @EnableEurekaServer 激活EurekaServer
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
@@ -1864,7 +1866,7 @@ throw new IllegalArgumentException("Unable to instantiate factory class: " + fac
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1876,7 +1878,7 @@ throw new IllegalArgumentException("Unable to instantiate factory class: " + fac
 
 SpringCloud对EurekaServer的封装使得发布一个EurekaServer无比简单，根据自动装载原则可以在
 
-![img]()![img]()![img]()spring-cloud-netflix-eureka-server-2.1.0.RELEASE.jar 下找到 spring.factories
+spring-cloud-netflix-eureka-server-2.1.0.RELEASE.jar 下找到 spring.factories
 
  
 
@@ -1894,7 +1896,7 @@ EurekaServerAutoConfiguration 是Eureka服务端的自动配置类
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1924,7 +1926,7 @@ bean,解释了上面的问题
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1936,13 +1938,13 @@ bean,解释了上面的问题
 
 #### 4.3.2.4 EurekaServerAutoConﬁguration
 
-![img]()实例化了EurekaServer的管控台的Controller类  EurekaController
+实例化了EurekaServer的管控台的Controller类  EurekaController
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1954,11 +1956,11 @@ bean,解释了上面的问题
 
 
 
-![img](asserts/images/clip_image003.jpg)![img]()
+![img](asserts/images/clip_image003.jpg)
 
  
 
-![img]()实例化jersey相关配置类
+实例化jersey相关配置类
 
  
 
@@ -1972,13 +1974,13 @@ bean,解释了上面的问题
 
 
 
-![img]()![img](asserts/images/clip_image003.jpg)jerseyApplication 方法，在容器中存放了一个jerseyApplication对象，jerseyApplication()方法里的东西和Spring源码里扫描@Component逻辑类似，扫描@Path和@Provider标签，然后封装成beandeﬁnition，封装到Application的set容器里。通过ﬁlter过滤器来过滤url进行映射到对象的
+![img](asserts/images/clip_image003.jpg)jerseyApplication 方法，在容器中存放了一个jerseyApplication对象，jerseyApplication()方法里的东西和Spring源码里扫描@Component逻辑类似，扫描@Path和@Provider标签，然后封装成beandeﬁnition，封装到Application的set容器里。通过ﬁlter过滤器来过滤url进行映射到对象的
 
 Controller
 
 #### 4.3.2.5 暴露的服务端接口
 
-![img]()由于集成了Jersey，我们可以找到在EurekaServer的依赖包中的 eureka-core-1.9.8.jar ,可以看到一些列的XXXResource
+由于集成了Jersey，我们可以找到在EurekaServer的依赖包中的 eureka-core-1.9.8.jar ,可以看到一些列的XXXResource
 
  
 
@@ -1998,10 +2000,10 @@ Controller
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
-![img]()在ApplicationResource.addInstance()方法中可以看到   
+在ApplicationResource.addInstance()方法中可以看到   
 
 this.registry.register(info, 
 
@@ -2013,13 +2015,13 @@ this.registry.register(info,
 
 
 
-![img]()![img](asserts/images/clip_image003.jpg)继续找到父类的register方法可以看到整个注册的过程
+![img](asserts/images/clip_image003.jpg)继续找到父类的register方法可以看到整个注册的过程
 
  
 
 //线程安全的map，存放所有注册的示例对象
 
-private final ConcurrentHashMap<String, Map<String, Lease<InstanceInfo>>> registry = new ConcurrentHashMap();
+private final ConcurrentHashMap\<String, Map\<String, Lease\<InstanceInfo\>\>\> registry = new ConcurrentHashMap();
 
  
 
@@ -2029,13 +2031,13 @@ try {
 
 this.read.lock();
 
-Map<String, Lease<InstanceInfo>> gMap = (Map)this.registry.get(registrant.getAppName());
+Map\<String, Lease\<InstanceInfo\>\> gMap = (Map)this.registry.get(registrant.getAppName());
 
 EurekaMonitors.REGISTER.increment(isReplication);
 
 //如果第一个实例注册会给registryput进去一个空的if (gMap == null) {
 
-ConcurrentHashMap<String, Lease<InstanceInfo>> gNewMap = new ConcurrentHashMap();
+ConcurrentHashMap\<String, Lease\<InstanceInfo\>\> gNewMap = new ConcurrentHashMap();
 
 gMap = (Map)this.registry.putIfAbsent(registrant.getAppName(),
 
@@ -2047,7 +2049,7 @@ if (gMap == null) { gMap = gNewMap;
 
 }
 
-//根据注册的示例对象id，获取已存在的Lease Lease<InstanceInfo> existingLease = (Lease)
+//根据注册的示例对象id，获取已存在的Lease Lease\<InstanceInfo\> existingLease = (Lease)
 
 ((Map)gMap).get(registrant.getId());
 
@@ -2063,7 +2065,7 @@ registrant.getLastDirtyTimestamp();
 
 logger.debug("Existing lease found (existing={}, provided={}", existingLastDirtyTimestamp, registrationLastDirtyTimestamp);
 
-if (existingLastDirtyTimestamp > registrationLastDirtyTimestamp)
+if (existingLastDirtyTimestamp \> registrationLastDirtyTimestamp)
 
 {
 
@@ -2081,7 +2083,7 @@ registrant = (InstanceInfo)existingLease.getHolder();
 
 Object var6 = this.lock; synchronized(this.lock) {
 
-if (this.expectedNumberOfClientsSendingRenews > 0) {
+if (this.expectedNumberOfClientsSendingRenews \> 0) {
 
 ++this.expectedNumberOfClientsSendingRenews; this.updateRenewsPerMinThreshold();
 
@@ -2099,11 +2101,11 @@ registration");
 
  
 
-Lease<InstanceInfo> lease = new Lease(registrant, leaseDuration);
+Lease\<InstanceInfo\> lease = new Lease(registrant, leaseDuration);
 
 
 
-![img]()![img](asserts/images/clip_image003.jpg)if (existingLease != null) {
+![img](asserts/images/clip_image003.jpg)if (existingLease != null) {
 
  
 
@@ -2199,7 +2201,7 @@ this.read.unlock();
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 在InstanceResource的renewLease方法中完成客户端的心跳（续约）处理，其中最关键的方法就是
@@ -2216,7 +2218,7 @@ this.read.unlock();
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2224,7 +2226,7 @@ this.read.unlock();
 
 
 
-![img]()
+
 
  
 
@@ -2236,13 +2238,13 @@ EvictionTask.evict()的定时器。
 
  
 
-![img]()public void evict(long additionalLeaseMs) { logger.debug("Running the evict task"); if (!this.isLeaseExpirationEnabled()) {
+public void evict(long additionalLeaseMs) { logger.debug("Running the evict task"); if (!this.isLeaseExpirationEnabled()) {
 
 logger.debug("DS: lease expiration is currently disabled.");
 
 } else {
 
-List<Lease<InstanceInfo>> expiredLeases = new ArrayList(); Iterator var4 = this.registry.entrySet().iterator();
+List\<Lease\<InstanceInfo\>\> expiredLeases = new ArrayList(); Iterator var4 = this.registry.entrySet().iterator();
 
  
 
@@ -2280,7 +2282,7 @@ int toEvict = Math.min(expiredLeases.size(),
 
  
 
-if (toEvict > 0) {
+if (toEvict \> 0) {
 
 logger.info("Evicting {} items (expired={},
 
@@ -2292,11 +2294,11 @@ Random random = new Random(System.currentTimeMillis());
 
  
 
-for(int i = 0; i < toEvict; ++i) { int next = i +
+for(int i = 0; i \< toEvict; ++i) { int next = i +
 
 random.nextInt(expiredLeases.size() - i);
 
-Collections.swap(expiredLeases, i, next); Lease<InstanceInfo> lease =
+Collections.swap(expiredLeases, i, next); Lease\<InstanceInfo\> lease =
 
 (Lease)expiredLeases.get(i);
 
@@ -2324,7 +2326,7 @@ return;
 
 
 
-![img]()
+
 
  
 
@@ -2342,7 +2344,7 @@ return;
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2350,7 +2352,7 @@ return;
 
 
 
-![img]()
+
 
  
 
@@ -2360,7 +2362,7 @@ return;
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2376,7 +2378,7 @@ return;
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2384,7 +2386,7 @@ return;
 
 
 
-![img]()
+
 
  
 
@@ -2502,7 +2504,7 @@ consul1.5x。根据不同的系统类型选择不同的安装包，从下图也�
 
 
 
-![img]()
+
 
  
 
@@ -2512,7 +2514,7 @@ consul1.5x。根据不同的系统类型选择不同的安装包，从下图也�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2536,7 +2538,7 @@ Consul 支持健康检查,并提供了 HTTP 和 DNS 调用的[API接口](https:/
 
 
 
-![img]()
+
 
  
 
@@ -2558,7 +2560,7 @@ Consul 支持健康检查,并提供了 HTTP 和 DNS 调用的[API接口](https:/
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2604,7 +2606,7 @@ value的值经过了base64_encode,获取到数据后base64_decode才能获取到
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2624,7 +2626,7 @@ spring-boot-starter-actuator 适用于完成心跳检测响应的相关依赖。
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2632,7 +2634,7 @@ spring-boot-starter-actuator 适用于完成心跳检测响应的相关依赖。
 
 
 
-![img]()
+
 
  
 
@@ -2644,7 +2646,7 @@ discovery：服务注册与发现的相关配置
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 instance-id ： 实例的唯一id（推荐必填），spring cloud官网文档的推荐，为了保证生成一个唯一的id ，也可以换成
@@ -2765,7 +2767,7 @@ Agent 以 server 模式启动的节点。一个数据中心中至少包含 1 个
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2779,7 +2781,7 @@ Agent 以 server 模式启动的节点。一个数据中心中至少包含 1 个
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2807,7 +2809,7 @@ Agent 以 server 模式启动的节点。一个数据中心中至少包含 1 个
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2823,7 +2825,7 @@ Agent 以 server 模式启动的节点。一个数据中心中至少包含 1 个
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2839,7 +2841,7 @@ Agent 以 server 模式启动的节点。一个数据中心中至少包含 1 个
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2917,7 +2919,7 @@ RestTemplate 最终进行调用
 
 
 
-![img]()
+
 
  
 
@@ -2929,7 +2931,7 @@ RestTemplate 最终进行调用
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2943,7 +2945,7 @@ RestTemplate 最终进行调用
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -2997,7 +2999,7 @@ RestTemplate 最终进行调用
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -3095,7 +3097,7 @@ com.netflix.loadbalancer.BestAvailableRule ：最佳策略。遍历所有的服�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -3129,7 +3131,7 @@ ServerList：可以响应客户端的特定服务的服务器列表。   ServerL
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -3143,7 +3145,7 @@ ServerList：可以响应客户端的特定服务的服务器列表。   ServerL
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -3159,13 +3161,13 @@ ServerList：可以响应客户端的特定服务的服务器列表。   ServerL
 
 根据SpringBoot中的自动装配规则可以在  spring-cloud-netflix-ribbon-2.1.0.RELEASE.jar 中可以
 
-![img]()
+
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -3179,7 +3181,7 @@ ServerList：可以响应客户端的特定服务的服务器列表。   ServerL
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -3195,7 +3197,7 @@ ServerList：可以响应客户端的特定服务的服务器列表。   ServerL
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -3215,9 +3217,9 @@ public LoadBalancerAutoConfiguration() {
 
 @Bean
 
-public SmartInitializingSingleton loadBalancedRestTemplateInitializerDeprecated(ObjectProvider<List<RestTemplateCu stomizer>> restTemplateCustomizers) {
+public SmartInitializingSingleton loadBalancedRestTemplateInitializerDeprecated(ObjectProvider\<List\<RestTemplateCu stomizer\>\> restTemplateCustomizers) {
 
-return () -> { restTemplateCustomizers.ifAvailable((customizers) -> {
+return () -\> { restTemplateCustomizers.ifAvailable((customizers) -\> {
 
 Iterator var2 = this.restTemplates.iterator();
 
@@ -3287,9 +3289,9 @@ return new RetryLoadBalancerInterceptor(loadBalancerClient, properties, requestF
 
 @Bean @ConditionalOnMissingBean public RestTemplateCustomizer
 
-restTemplateCustomizer(RetryLoadBalancerInterceptor loadBalancerInterceptor) { return (restTemplate) -> {
+restTemplateCustomizer(RetryLoadBalancerInterceptor loadBalancerInterceptor) { return (restTemplate) -\> {
 
-List<ClientHttpRequestInterceptor> list = new ArrayList(restTemplate.getInterceptors());
+List\<ClientHttpRequestInterceptor\> list = new ArrayList(restTemplate.getInterceptors());
 
 
 
@@ -3355,9 +3357,9 @@ return new LoadBalancerInterceptor(loadBalancerClient, requestFactory);
 
 @Bean @ConditionalOnMissingBean public RestTemplateCustomizer
 
-restTemplateCustomizer(LoadBalancerInterceptor loadBalancerInterceptor) { return (restTemplate) -> {
+restTemplateCustomizer(LoadBalancerInterceptor loadBalancerInterceptor) { return (restTemplate) -\> {
 
-List<ClientHttpRequestInterceptor> list = new ArrayList(restTemplate.getInterceptors());
+List\<ClientHttpRequestInterceptor\> list = new ArrayList(restTemplate.getInterceptors());
 
 list.add(loadBalancerInterceptor); restTemplate.setInterceptors(list);
 
@@ -3391,7 +3393,7 @@ LoadBalancerInterceptor 拦截器。
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -3405,7 +3407,7 @@ LoadBalancerInterceptor 拦截器。
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 分析到这里， LoadBalancerClient 还只是一个抽象的负载均衡器接口，所以我们还需要找到它的具体实现类来进一步分析。通过查看ribbon的源码，我们可以很容易的在org.springframework.cloud.netflix.ribbon 包下找到对应的实现类：
@@ -3416,7 +3418,7 @@ LoadBalancerInterceptor 拦截器。
 
 
 
-![img]()
+
 
  
 
@@ -3432,4 +3434,4 @@ T execute(String serviceId, ServiceInstance serviceInstance, LoadBalancerRequest
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |

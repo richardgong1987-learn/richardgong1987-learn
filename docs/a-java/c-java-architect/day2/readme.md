@@ -12,7 +12,7 @@
 | ---- | ---------------------------------------- |
 |      | ![img](asserts/images/clip_image002.jpg) |
 
-​                ![img]()    
+​                    
  
 
 
@@ -39,13 +39,13 @@ Feign是Netﬂix开发的声明式，模板化的HTTP客户端，其灵感来自
 
 #### （1）  引入依赖
 
-![img]()在服务消费者 shop_service_order 添加Fegin依赖
+在服务消费者 shop_service_order 添加Fegin依赖
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -59,7 +59,7 @@ Feign是Netﬂix开发的声明式，模板化的HTTP客户端，其灵感来自
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -75,13 +75,13 @@ Feign是Netﬂix开发的声明式，模板化的HTTP客户端，其灵感来自
 
 ![img](asserts/images/clip_image006.jpg)创建一个Feign接口，此接口是在Feign中调用微服务的核心接口
 
-![img]()![img]()在服务消费者shop_service_order 添加一个ProductFeginClient 接口
+在服务消费者shop_service_order 添加一个ProductFeginClient 接口
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -89,19 +89,19 @@ Feign是Netﬂix开发的声明式，模板化的HTTP客户端，其灵感来自
 
  
 
-![img](asserts/images/clip_image004.jpg)![img](asserts/images/clip_image007.jpg)![img]()定义各参数绑定时，@PathVariable、@RequestParam、@RequestHeader等可以指定参数属 性，在Feign中绑定参数必须通过value属性来指明具体的参数名，不然会抛出异常@FeignClient：注解通过name指定需要调用的微服务的名称，用于创建Ribbon的负载均衡器。 所以Ribbon会把 shop-service-product 解析为注册中心的服务。
+![img](asserts/images/clip_image004.jpg)![img](asserts/images/clip_image007.jpg)定义各参数绑定时，@PathVariable、@RequestParam、@RequestHeader等可以指定参数属 性，在Feign中绑定参数必须通过value属性来指明具体的参数名，不然会抛出异常@FeignClient：注解通过name指定需要调用的微服务的名称，用于创建Ribbon的负载均衡器。 所以Ribbon会把 shop-service-product 解析为注册中心的服务。
 
 #### （4）  配置请求提供者的调用接口
 
-![img]()修改OrderController ，添加ProductFeginClient的自动注入，并在order方法中使用
+修改OrderController ，添加ProductFeginClient的自动注入，并在order方法中使用
 
-![img]()ProductFeginClient 完成微服务调用
+ProductFeginClient 完成微服务调用
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -135,9 +135,9 @@ RibbonServerList（服务端列表），使用 HttpClient 或 RestTemplate 模�
 
 
 
-![img]()![img]()![img]()![img](asserts/images/clip_image006.jpg)Feign中本身已经集成了Ribbon依赖和自动配置，因此我们不需要额外引入依赖，也不需要再注册RestTemplate 对象。另外，我们可以像上节课中讲的那样去配置Ribbon，可以通过 ribbon.xx 来进行全局配置。也可以通过服务名.ribbon.xx 来对指定服务配置：
+![img](asserts/images/clip_image006.jpg)Feign中本身已经集成了Ribbon依赖和自动配置，因此我们不需要额外引入依赖，也不需要再注册RestTemplate 对象。另外，我们可以像上节课中讲的那样去配置Ribbon，可以通过 ribbon.xx 来进行全局配置。也可以通过服务名.ribbon.xx 来对指定服务配置：
 
-![img]()启动两个shop_service_product ，重新测试可以发现使用Ribbon的轮询策略进行负载均衡
+启动两个shop_service_product ，重新测试可以发现使用Ribbon的轮询策略进行负载均衡
 
  
 
@@ -151,17 +151,17 @@ RibbonServerList（服务端列表），使用 HttpClient 或 RestTemplate 模�
 
 # 2 服务调用Feign高级
 
-![img]()
+
 
 ## 2.1 Feign的配置
 
-![img]()从Spring Cloud Edgware开始，Feign支持使用属性自定义Feign。对于一个指定名称的Feign Client（例如该Feign Client的名称为 feignName ），Feign支持如下配置项：
+从Spring Cloud Edgware开始，Feign支持使用属性自定义Feign。对于一个指定名称的Feign Client（例如该Feign Client的名称为 feignName ），Feign支持如下配置项：
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -177,7 +177,7 @@ Spring Cloud Feign 支持对请求和响应进行GZIP压缩，以减少通信过
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
@@ -187,7 +187,7 @@ Spring Cloud Feign 支持对请求和响应进行GZIP压缩，以减少通信过
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -199,13 +199,13 @@ Spring Cloud Feign 支持对请求和响应进行GZIP压缩，以减少通信过
 
 ## 2.3 日志级别
 
-![img]()在开发或者运行阶段往往希望看到Feign请求过程的日志记录，默认情况下Feign的日志是没有开启的。 要想用属性配置方式来达到日志效果，只需在application.yml 中添加如下内容即可：
+在开发或者运行阶段往往希望看到Feign请求过程的日志记录，默认情况下Feign的日志是没有开启的。 要想用属性配置方式来达到日志效果，只需在application.yml 中添加如下内容即可：
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -213,9 +213,9 @@ Spring Cloud Feign 支持对请求和响应进行GZIP压缩，以减少通信过
 
  
 
-![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image004.jpg)![img](): Feign日志只会对日志级别为debug的做出响应
+![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image004.jpg): Feign日志只会对日志级别为debug的做出响应
 
-![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image004.jpg)![img](): 配置Feign的日志Feign有四种
+![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image004.jpg): 配置Feign的日志Feign有四种
 
 日志级别：
 
@@ -248,7 +248,7 @@ Spring Cloud Feign 支持对请求和响应进行GZIP压缩，以减少通信过
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -256,7 +256,7 @@ Spring Cloud Feign 支持对请求和响应进行GZIP压缩，以减少通信过
 
  
 
-![img]()通过@EnableFeignClients 引入了FeignClientsRegistrar客户端注册类
+通过@EnableFeignClients 引入了FeignClientsRegistrar客户端注册类
 
 #### （2）  FeignClientsRegistrar注册类
 
@@ -264,7 +264,7 @@ Spring Cloud Feign 支持对请求和响应进行GZIP压缩，以减少通信过
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -282,21 +282,21 @@ registerBeanDeﬁnitions()中就会解析和注册BeanDeﬁnition，主要注册
 
  
 
-![img]()public void registerFeignClients(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
+public void registerFeignClients(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
 
 ClassPathScanningCandidateComponentProvider scanner = this.getScanner(); scanner.setResourceLoader(this.resourceLoader);
 
-Map<String, Object> attrs = metadata.getAnnotationAttributes(EnableFeignClients.class.getName());
+Map\<String, Object\> attrs = metadata.getAnnotationAttributes(EnableFeignClients.class.getName());
 
 AnnotationTypeFilter annotationTypeFilter = new AnnotationTypeFilter(FeignClient.class);
 
-Class<?>[] clients = attrs == null ? null : (Class[]) ((Class[])attrs.get("clients"));
+Class\<?\>[] clients = attrs == null ? null : (Class[]) ((Class[])attrs.get("clients"));
 
 Object basePackages;
 
 if (clients != null && clients.length != 0) {
 
-final Set<String> clientClasses = new HashSet(); basePackages = new HashSet();
+final Set\<String\> clientClasses = new HashSet(); basePackages = new HashSet();
 
 Class[] var9 = clients;
 
@@ -306,7 +306,7 @@ int var10 = clients.length;
 
  
 
-for(int var11 = 0; var11 < var10; ++var11) { Class<?> clazz = var9[var11];
+for(int var11 = 0; var11 \< var10; ++var11) { Class\<?\> clazz = var9[var11];
 
 ((Set)basePackages).add(ClassUtils.getPackageName(clazz)); clientClasses.add(clazz.getCanonicalName());
 
@@ -326,7 +326,7 @@ protected boolean match(ClassMetadata metadata) {
 
  
 
-![img]()![img]()![img]()![img]()该方法主要是扫描类路径，对所有的FeignClient生成对应的 BeanDefinitio 。同时又调用了registerClientConfiguration 注册配置的方法，这里是第二处调用。这里主要是将扫描的目录下， 每个项目的配置类加载的容器当中。调用registerFeignClient 注册对象
+该方法主要是扫描类路径，对所有的FeignClient生成对应的 BeanDefinitio 。同时又调用了registerClientConfiguration 注册配置的方法，这里是第二处调用。这里主要是将扫描的目录下， 每个项目的配置类加载的容器当中。调用registerFeignClient 注册对象
 
 #### （3）  注册FeignClient对象
 
@@ -334,7 +334,7 @@ protected boolean match(ClassMetadata metadata) {
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -350,10 +350,10 @@ protected boolean match(ClassMetadata metadata) {
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
-![img]()通过分析可知：我们最终是向Spring中注册了一个bean，bean的名称就是类或接口的名称（也就是本 例中的FeignService），bean的实现类是FeignClientFactoryBean，其属性设置就是我们在@FeignClient中定义的属性。那么下面我们在Controller中对FeignService的的引入，实际就是引入了
+通过分析可知：我们最终是向Spring中注册了一个bean，bean的名称就是类或接口的名称（也就是本 例中的FeignService），bean的实现类是FeignClientFactoryBean，其属性设置就是我们在@FeignClient中定义的属性。那么下面我们在Controller中对FeignService的的引入，实际就是引入了
 
 
 
@@ -365,11 +365,11 @@ protected boolean match(ClassMetadata metadata) {
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
-![img]()通过FeignClientFactoryBean 类结构可以发现其实现了FactoryBean类，那么当从
+通过FeignClientFactoryBean 类结构可以发现其实现了FactoryBean类，那么当从
 
 ApplicationContext中获取该bean的时候，实际调用的是其getObject()方法。返回调用getTarget()方法
 
@@ -377,7 +377,7 @@ ApplicationContext中获取该bean的时候，实际调用的是其getObject()�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -401,15 +401,15 @@ FeignInvocationHandler
 
  
 
-![img]()static class FeignInvocationHandler implements InvocationHandler { private final Target target;
+static class FeignInvocationHandler implements InvocationHandler { private final Target target;
 
-private final Map<Method, MethodHandler> dispatch;
-
- 
+private final Map\<Method, MethodHandler\> dispatch;
 
  
 
-FeignInvocationHandler(Target target, Map<Method, MethodHandler> dispatch) {
+ 
+
+FeignInvocationHandler(Target target, Map\<Method, MethodHandler\> dispatch) {
 
 
 
@@ -455,7 +455,7 @@ return "toString".equals(method.getName()) ? this.toString()
 
 try {
 
-Object otherHandler = args.length > 0 && args[0] != null ?
+Object otherHandler = args.length \> 0 && args[0] != null ?
 
 Proxy.getInvocationHandler(args[0]) : null;
 
@@ -509,7 +509,7 @@ return this.target.toString();
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
@@ -517,7 +517,7 @@ return this.target.toString();
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 ![img](asserts/images/clip_image014.jpg)![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image004.jpg)![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image007.jpg)FeignInvocationHandler实现了InvocationHandler，是动态代理的代理类。 当执行非Object方法时进入到this.dispatch.get(method)).invoke(args) dispatch是一个map集合，根据方法名称获取MethodHandler。具体实现类为
@@ -536,7 +536,7 @@ return this.target.toString();
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 ![img](asserts/images/clip_image023.jpg)调用executeAndDecode方法通过client完成请求处理，client的实现类是
@@ -547,7 +547,7 @@ return this.target.toString();
 
 # 3 服务注册与发现总结
 
-![img]()
+
 
 ## 3.1 组件的使用方式
 
@@ -557,29 +557,29 @@ return this.target.toString();
 
 ![img](asserts/images/clip_image024.jpg)搭建注册中心
 
-![img](asserts/images/clip_image025.jpg)![img]()引入依赖spring-cloud-starter-netflix-eureka-server
+![img](asserts/images/clip_image025.jpg)引入依赖spring-cloud-starter-netflix-eureka-server
 
 ![img](asserts/images/clip_image026.jpg)配置EurekaServer
 
-![img](asserts/images/clip_image027.jpg)![img]()通过@EnableEurekaServer 激活Eureka Server端配置
+![img](asserts/images/clip_image027.jpg)通过@EnableEurekaServer 激活Eureka Server端配置
 
 
 
 ![img](asserts/images/clip_image028.jpg)![img](asserts/images/clip_image006.jpg)服务注册
 
-![img](asserts/images/clip_image029.jpg)![img]()![img](asserts/images/clip_image030.jpg)![img]()服务提供者引入spring-cloud-starter-netflix-eureka-client 依赖通过eureka.client.serviceUrl.defaultZone 配置注册中心地址
+![img](asserts/images/clip_image029.jpg)![img](asserts/images/clip_image030.jpg)服务提供者引入spring-cloud-starter-netflix-eureka-client 依赖通过eureka.client.serviceUrl.defaultZone 配置注册中心地址
 
 #### （2）  consul
 
 ![img](asserts/images/clip_image023.jpg)搭建注册中心
 
-![img](asserts/images/clip_image025.jpg)![img](asserts/images/clip_image030.jpg)![img]()下载安装consul 启动consul
+![img](asserts/images/clip_image025.jpg)![img](asserts/images/clip_image030.jpg)下载安装consul 启动consul
 
 ![img](asserts/images/clip_image024.jpg)服务注册
 
 ![img](asserts/images/clip_image025.jpg)![img](asserts/images/clip_image031.jpg)服务提供者引入spring-cloud-starter-consul-discovery 依赖
 
-![img](asserts/images/clip_image026.jpg)![img](asserts/images/clip_image032.jpg)![img]()通过spring.cloud.consul.host 和spring.cloud.consul.port 指定Consul Server的请求地址
+![img](asserts/images/clip_image026.jpg)![img](asserts/images/clip_image032.jpg)通过spring.cloud.consul.host 和spring.cloud.consul.port 指定Consul Server的请求地址
 
 ### 3.1.2 服务调用
 
@@ -589,17 +589,17 @@ return this.target.toString();
 
 @LoadBalanced即可
 
-![img](asserts/images/clip_image033.jpg)![img]()可以通过{服务名称}.ribbon.NFLoadBalancerRuleClassName 配置负载均衡策略
+![img](asserts/images/clip_image033.jpg)可以通过{服务名称}.ribbon.NFLoadBalancerRuleClassName 配置负载均衡策略
 
 #### （2）  Feign
 
-![img](asserts/images/clip_image034.jpg)![img]()![img](asserts/images/clip_image033.jpg)![img]()服务消费者引入spring-cloud-starter-openfeign 依赖通过@FeignClient 声明一个调用远程微服务接口
+![img](asserts/images/clip_image034.jpg)![img](asserts/images/clip_image033.jpg)服务消费者引入spring-cloud-starter-openfeign 依赖通过@FeignClient 声明一个调用远程微服务接口
 
-![img](asserts/images/clip_image033.jpg)![img]()启动类上通过@EnableFeignClients 激活Feign
+![img](asserts/images/clip_image033.jpg)启动类上通过@EnableFeignClients 激活Feign
 
 # 4 微服务架构的高并发问题
 
-![img]()
+
 
 通过注册中心已经实现了微服务的服务注册和服务发现，并且通过Ribbon实现了负载均衡，已经借助
 
@@ -611,9 +611,9 @@ Apache JMeter是Apache组织开发的基于Java的压力测试工具。用于对
 
 ### 4.1.1 安装Jmetter
 
-![img]()Jmetter安装十分简单，使用资料中的apache-jmeter-2.13.zip 完整压缩包，解压找到安装目录下
+Jmetter安装十分简单，使用资料中的apache-jmeter-2.13.zip 完整压缩包，解压找到安装目录下
 
-![img]()bin/jmeter.bat 已管理员身份启动即可
+bin/jmeter.bat 已管理员身份启动即可
 
 
 
@@ -683,7 +683,7 @@ Apache JMeter是Apache组织开发的基于Java的压力测试工具。用于对
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -699,7 +699,7 @@ Apache JMeter是Apache组织开发的基于Java的压力测试工具。用于对
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -707,19 +707,19 @@ Apache JMeter是Apache组织开发的基于Java的压力测试工具。用于对
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
 #### （3）  配置调用
 
-![img]()修改OrderController ，使用自定义的OrderCommand完成调用
+修改OrderController ，使用自定义的OrderCommand完成调用
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -727,7 +727,7 @@ Apache JMeter是Apache组织开发的基于Java的压力测试工具。用于对
 
 # 5 服务熔断Hystrix入门
 
-![img]()
+
 
 ## 5.1 服务容错的核心知识
 
@@ -799,19 +799,19 @@ Hystrix是由Netﬂix开源的一个延迟和容错库，用于隔离访问远�
 
 ## 5.3 Rest实现服务熔断
 
-**（1）**  ![img]()![img]()**复制** shop_service_order **项目并命名为** shop_service_order_rest_hystrix
+**（1）**  **复制** shop_service_order **项目并命名为** shop_service_order_rest_hystrix
 
 略
 
 #### （2）  配置依赖
 
-![img]()在shop_service_order_rest_hystrix 工程中添加Hystrix的相关依赖
+在shop_service_order_rest_hystrix 工程中添加Hystrix的相关依赖
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -821,13 +821,13 @@ Hystrix是由Netﬂix开源的一个延迟和容错库，用于隔离访问远�
 
 #### （3）  开启熔断
 
-![img]()![img]()在启动类OrderApplication 中添加@EnableCircuitBreaker 注解开启对熔断器的支持。
+在启动类OrderApplication 中添加@EnableCircuitBreaker 注解开启对熔断器的支持。
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -835,7 +835,7 @@ Hystrix是由Netﬂix开源的一个延迟和容错库，用于隔离访问远�
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
@@ -847,7 +847,7 @@ Hystrix是由Netﬂix开源的一个延迟和容错库，用于隔离访问远�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -855,19 +855,19 @@ Hystrix是由Netﬂix开源的一个延迟和容错库，用于隔离访问远�
 
  
 
-![img]()![img]()有代码可知，为findProduct 方法编写一个回退方法ﬁndProductFallBack，该方法与findProduct 方法具有相同的参数与返回值类型，该方法返回一个默认的错误信息。
+有代码可知，为findProduct 方法编写一个回退方法ﬁndProductFallBack，该方法与findProduct 方法具有相同的参数与返回值类型，该方法返回一个默认的错误信息。
 
-![img]()在Product  方法上，使用注解@HystrixCommand的fallbackMethod属性，指定熔断触发的降级方法
+在Product  方法上，使用注解@HystrixCommand的fallbackMethod属性，指定熔断触发的降级方法
 
-![img]()
+
 
  
 
 ![img](asserts/images/clip_image023.jpg)因为熔断的降级逻辑方法必须跟正常逻辑方法保证：**相同的参数列表和返回值声明**。
 
-![img](asserts/images/clip_image052.jpg)![img]()![img]()在findProduct 方法上HystrixCommand(fallbackMethod = "findProductFallBack") 用来声明一个降级逻辑的方法
+![img](asserts/images/clip_image052.jpg)在findProduct 方法上HystrixCommand(fallbackMethod = "findProductFallBack") 用来声明一个降级逻辑的方法
 
-![img]()![img]()当shop-service-product 微服务正常时，浏览器访问http://localhost:9001/order/product/1
+当shop-service-product 微服务正常时，浏览器访问http://localhost:9001/order/product/1
 
 
 
@@ -912,7 +912,7 @@ Hystrix是由Netﬂix开源的一个延迟和容错库，用于隔离访问远�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -924,19 +924,19 @@ Hystrix是由Netﬂix开源的一个延迟和容错库，用于隔离访问远�
 
 SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后就不用在添加hystrix，那么怎么才能让Feign的熔断机制生效呢，只要按以下步骤开发：
 
-**（1）**  ![img]()![img]()**复制** shop_service_order **项目并命名为** shop_service_order_feign_hystrix
+**（1）**  **复制** shop_service_order **项目并命名为** shop_service_order_feign_hystrix
 
 略
 
 #### （2）  修改application.yml在Fegin中开启hystrix
 
-![img]()在Feign中已经内置了hystrix，但是默认是关闭的需要在工程的 application.yml 中开启对hystrix的支持
+在Feign中已经内置了hystrix，但是默认是关闭的需要在工程的 application.yml 中开启对hystrix的支持
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -952,7 +952,7 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -964,7 +964,7 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 **修改****FeignClient****添加****hystrix****熔断**在@FeignClient注解中添加降级方法
@@ -979,13 +979,13 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 # 6 ![img](asserts/images/clip_image006.jpg)服务熔断Hystrix高级
 
-![img]()
+
 
 我们知道，当请求失败，被拒绝，超时的时候，都会进入到降级方法中。但进入降级方法并不意味着断 路器已经被打开。那么如何才能了解断路器中的状态呢？
 
 ## 6.1 Hystrix的监控平台
 
-![img]()除了实现容错功能，Hystrix还提供了近乎实时的监控，HystrixCommand和 HystrixObservableCommand在执行时，会生成执行结果和运行指标。比如每秒的请求数量，成功数 量等。这些状态会暴露在Actuator提供的/health端点中。只需为项目添加 spring-boot-actuator 依赖，重启项目，访问http://localhost:9001/actuator/hystrix.stream ,即可看到实时的监控数据。
+除了实现容错功能，Hystrix还提供了近乎实时的监控，HystrixCommand和 HystrixObservableCommand在执行时，会生成执行结果和运行指标。比如每秒的请求数量，成功数 量等。这些状态会暴露在Actuator提供的/health端点中。只需为项目添加 spring-boot-actuator 依赖，重启项目，访问http://localhost:9001/actuator/hystrix.stream ,即可看到实时的监控数据。
 
  
 
@@ -1007,7 +1007,7 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1023,7 +1023,7 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1072,11 +1072,11 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 （1） 搭建TurbineServer
 
-![img]()创建工程shop_hystrix_turbine 引入相关坐标
+创建工程shop_hystrix_turbine 引入相关坐标
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
@@ -1088,7 +1088,7 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1100,7 +1100,7 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 ![img](asserts/images/clip_image063.jpg)turbine相关配置：指定需要监控的微服务列表
 
-![img]()turbine会自动的从注册中心中获取需要监控的微服务，并聚合所有微服务中的 /hystrix.stream 数据
+turbine会自动的从注册中心中获取需要监控的微服务，并聚合所有微服务中的 /hystrix.stream 数据
 
 （3）配置启动类
 
@@ -1108,7 +1108,7 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1120,7 +1120,7 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 （4） 测试
 
-![img]()浏览器访问http://localhost:8031/hystrix 展示HystrixDashboard。并在url位置输入 [http://local](http://local/) host:8031/turbine.stream，动态根据turbine.stream数据展示多个微服务的监控数据
+浏览器访问http://localhost:8031/hystrix 展示HystrixDashboard。并在url位置输入 [http://local](http://local/) host:8031/turbine.stream，动态根据turbine.stream数据展示多个微服务的监控数据
 
 
 
@@ -1130,7 +1130,7 @@ SpringCloud  Fegin默认已为Feign整合了hystrix，所以添加Feign依赖后
 
 ## 6.2 熔断器的状态
 
-![img]()![img]()![img]()![img]()![img]()![img]()熔断器有三个状态 CLOSED 、 OPEN 、 HALF_OPEN 熔断器默认关闭状态，当触发熔断后状态变更为OPEN ,在等待到指定的时间，Hystrix会放请求检测服务是否开启，这期间熔断器会变为HALF_OPEN 半开启状态，熔断探测服务可用则继续变更为 CLOSED 关闭熔断器。
+熔断器有三个状态 CLOSED 、 OPEN 、 HALF_OPEN 熔断器默认关闭状态，当触发熔断后状态变更为OPEN ,在等待到指定的时间，Hystrix会放请求检测服务是否开启，这期间熔断器会变为HALF_OPEN 半开启状态，熔断探测服务可用则继续变更为 CLOSED 关闭熔断器。
 
  
 
@@ -1148,13 +1148,13 @@ Closed：关闭状态（断路器关闭），所有请求都正常访问。代�
 
 ![img](asserts/images/clip_image066.jpg)Half  Open：半开状态，open状态不是永久的，打开后会进入休眠时间（默认是5S）。随后断路器会自动进入半开状态。此时会释放1次请求通过，若这个请求是健康的，则会关闭断路器，否则 继续保持打开，再次进行5秒休眠计时。
 
-![img]()为了能够精确控制请求的成功或失败，我们在shop_service_product 的调用业务中加入一段逻辑：
+为了能够精确控制请求的成功或失败，我们在shop_service_product 的调用业务中加入一段逻辑：
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1172,7 +1172,7 @@ Closed：关闭状态（断路器关闭），所有请求都正常访问。代�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1216,9 +1216,9 @@ Closed：关闭状态（断路器关闭），所有请求都正常访问。代�
 
  
 
-![img](asserts/images/clip_image073.jpg)![img]()hystrix.command.default.execution.isolation.strategy : 配置隔离策略
+![img](asserts/images/clip_image073.jpg)hystrix.command.default.execution.isolation.strategy : 配置隔离策略
 
-![img](asserts/images/clip_image029.jpg)![img]()![img](asserts/images/clip_image074.jpg)![img]()信号量隔离线程池隔离
+![img](asserts/images/clip_image029.jpg)![img](asserts/images/clip_image074.jpg)信号量隔离线程池隔离
 
 ![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image063.jpg)![img](asserts/images/clip_image075.jpg)hystrix.command.default.execution.isolation.maxConcurrentRequests : 最大信号量上限
 
@@ -1292,7 +1292,7 @@ execute() 方法 ：调用 #queue() 方法的基础上，调用 Future#get() 方
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1300,13 +1300,13 @@ execute() 方法 ：调用 #queue() 方法的基础上，调用 Future#get() 方
 
  
 
-![img]()其定义了fallbackMethod方法名，正如其名，其提供了一个定义回退方法映射，在异常触发时此方法名 对应的method将被触发执行，从而实现服务的降级。那么@HystrixCommand注解又是如何被执行的呢，我们找到HystrixCommandAspect.java ，其切点定义如下
+其定义了fallbackMethod方法名，正如其名，其提供了一个定义回退方法映射，在异常触发时此方法名 对应的method将被触发执行，从而实现服务的降级。那么@HystrixCommand注解又是如何被执行的呢，我们找到HystrixCommandAspect.java ，其切点定义如下
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1314,11 +1314,11 @@ execute() 方法 ：调用 #queue() 方法的基础上，调用 Future#get() 方
 
 
 
-![img]()
+
 
  
 
-![img]()可以看到被@HystrixCommand 注解的方法将会执行切面处理。
+可以看到被@HystrixCommand 注解的方法将会执行切面处理。
 
 ### 6.4.2 环绕通知增强
 
@@ -1326,7 +1326,7 @@ execute() 方法 ：调用 #queue() 方法的基础上，调用 Future#get() 方
 
  
 
-![img]()@Around("hystrixCommandAnnotationPointcut() || hystrixCollapserAnnotationPointcut()")
+@Around("hystrixCommandAnnotationPointcut() || hystrixCollapserAnnotationPointcut()")
 
 public Object methodsAnnotatedWithHystrixCommand(ProceedingJoinPoint joinPoint) throws Throwable {
 
@@ -1396,7 +1396,7 @@ result = this.executeObservable(invokable, executionType,
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
@@ -1504,7 +1504,7 @@ Sentinel官方提供了详细的由Hystrix 迁移到Sentinel 的方法
 | 注解支持              | Sentinel 也提供注解支持，可以很方便地迁移，详见此处          |
 | 开源框架支持          | Sentinel 提供 Servlet、Dubbo、Spring Cloud、gRPC 的适配模块，开箱即用； 若之前使用 Spring Cloud  Netﬂix，可迁移至 [Spring   Cloud Alibaba](https://github.com/spring-cloud-incubator/spring-cloud-alibaba) |
 
-### 7.2.4 ![img]()名词解释
+### 7.2.4 名词解释
 
 
 
@@ -1542,7 +1542,7 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1550,9 +1550,9 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
  
 
-![img]()![img]()其中                 用于指定 Sentinel 控制台端口为 8080 。
+其中                 用于指定 Sentinel 控制台端口为 8080 。
 
-![img]()从 Sentinel 1.6.0 起，Sentinel 控制台引入基本的**登录**功能，默认用户名和密码都是 sentinel 。可以参考 [鉴权模块文档 ](https://github.com/alibaba/Sentinel/wiki/控制台#鉴权)配置用户名和密码。
+从 Sentinel 1.6.0 起，Sentinel 控制台引入基本的**登录**功能，默认用户名和密码都是 sentinel 。可以参考 [鉴权模块文档 ](https://github.com/alibaba/Sentinel/wiki/控制台#鉴权)配置用户名和密码。
 
 ![img](asserts/images/clip_image079.jpg)启动 Sentinel 控制台需要 JDK 版本为 1.8 及以上版本。
 
@@ -1562,13 +1562,13 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
 #### （1）  引入JAR包
 
-![img]()客户端需要引入 Transport 模块来与 Sentinel 控制台进行通信。可以通过         引入 JAR 包:
+客户端需要引入 Transport 模块来与 Sentinel 控制台进行通信。可以通过         引入 JAR 包:
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1582,17 +1582,17 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
-![img]()这里的  spring.cloud.sentinel.transport.dashboard 配置控制台的请求路径。
+这里的  spring.cloud.sentinel.transport.dashboard 配置控制台的请求路径。
 
 ### 7.3.3 查看机器列表以及健康情况
 
 默认情况下Sentinel   会在客户端首次调用的时候进行初始化，开始向控制台发送心跳包。也可以配置
 
-![img](),取消Sentinel控制台懒加载。打开浏览器即可展示Sentinel的管理控制台
+,取消Sentinel控制台懒加载。打开浏览器即可展示Sentinel的管理控制台
 
 ![img](asserts/images/clip_image080.jpg)
 
@@ -1602,7 +1602,7 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
 #### （1）  案例准备
 
-![img]()![img]()复制工程shop_service_order 并命名为shop_service_order_rest_sentinel
+复制工程shop_service_order 并命名为shop_service_order_rest_sentinel
 
 #### （2） 引入依赖
 
@@ -1622,7 +1622,7 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
@@ -1632,7 +1632,7 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1646,7 +1646,7 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1654,11 +1654,11 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
  
 
-![img]()![img]()在需要被保护的方法上使用@SentinelResource注解进行熔断配置。与Hystrix不同的是，Sentinel对抛 出异常和熔断降级做了更加细致的区分，通过blockHandler 指定熔断降级方法，通过fallback 指定触发异常执行的降级方法。对于@SentinelResource的其他配置如下表：
+在需要被保护的方法上使用@SentinelResource注解进行熔断配置。与Hystrix不同的是，Sentinel对抛 出异常和熔断降级做了更加细致的区分，通过blockHandler 指定熔断降级方法，通过fallback 指定触发异常执行的降级方法。对于@SentinelResource的其他配置如下表：
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()![img]()![img]()![img]()![img]()![img]()![img]()![img]()![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
@@ -1689,13 +1689,13 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
  
 
-![img](asserts/images/clip_image082.jpg)![img]()注：1.6.0 之前的版本 fallback 函数只针对降级异常（ DegradeException ）进行处理，**不能针对业务异常进行处理**。
+![img](asserts/images/clip_image082.jpg)注：1.6.0 之前的版本 fallback 函数只针对降级异常（ DegradeException ）进行处理，**不能针对业务异常进行处理**。
 
-![img]()特别地，若 blockHandler 和 fallback 都进行了配置，则被限流降级而抛出              时只会
+特别地，若 blockHandler 和 fallback 都进行了配置，则被限流降级而抛出              时只会
 
 
 
-![img]()进入
+进入
 
 限流降级时会将
 
@@ -1703,15 +1703,15 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
 处理逻辑。若未配置 blockHandler 、 fallback 和 defaultFallback ，则被
 
-![img]()![img]()![img]()![img]()**直接抛出**。
+**直接抛出**。
 
 
 
 ### 7.4.2 Rest实现熔断
 
-![img]()Spring Cloud Alibaba Sentinel 支持对
+Spring Cloud Alibaba Sentinel 支持对
 
-![img]()![img]()bean的时候需要加上
+bean的时候需要加上
 
 
 
@@ -1723,29 +1723,29 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
  
 
-![img]()
-
- 
-
-![img](asserts/images/clip_image083.jpg)![img]()![img]()![img]()![img]()![img]()注解的属性支持限流( blockHandler , blockHandlerClass )和降级( fallback , fallbackClass )的处理。
-
-![img](asserts/images/clip_image084.jpg)![img]()![img]()![img]()其中 blockHandler 或         属性对应的方法必须是对应                 或
-
-
-
-![img]()![img](asserts/images/clip_image085.jpg)![img]()fallbackClass 属性中的静态方法。该方法的参数跟返回值跟
-
- 
-
-![img]()致，其中参数多出了一个
-
-
-
 
 
  
 
-![img]()![img]()参数用于获取 Sentinel 捕获的异常。
+![img](asserts/images/clip_image083.jpg)注解的属性支持限流( blockHandler , blockHandlerClass )和降级( fallback , fallbackClass )的处理。
+
+![img](asserts/images/clip_image084.jpg)其中 blockHandler 或         属性对应的方法必须是对应                 或
+
+
+
+![img](asserts/images/clip_image085.jpg)fallbackClass 属性中的静态方法。该方法的参数跟返回值跟
+
+ 
+
+致，其中参数多出了一个
+
+
+
+
+
+ 
+
+参数用于获取 Sentinel 捕获的异常。
 
 
 
@@ -1755,7 +1755,7 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
 
 
-![img]()比如上述声明如下：
+比如上述声明如下：
 
 
 
@@ -1771,29 +1771,29 @@ https://github.com/alibaba/Sentinel/releases/download/1.6.3/sentinel-dashboard-1
 
 
 
-![img]()
 
 
 
-![img]()
+
+
 
  
 
 Sentinel RestTemplate 限流的资源规则提供两种粒度：
 
-![img](asserts/images/clip_image086.jpg)![img]()httpmethod:schema://host:port/path ：协议、主机、端口和路径
+![img](asserts/images/clip_image086.jpg)httpmethod:schema://host:port/path ：协议、主机、端口和路径
 
-![img](asserts/images/clip_image087.jpg)![img]()httpmethod:schema://host:port ：协议、主机和端口
+![img](asserts/images/clip_image087.jpg)httpmethod:schema://host:port ：协议、主机和端口
 
 ### 7.4.3 Feign实现熔断
 
-![img]()Sentinel 适配了 [Feign ](https://github.com/OpenFeign/feign)组件。如果想使用，除了引入                的依赖外还需要 2 个步骤：
+Sentinel 适配了 [Feign ](https://github.com/OpenFeign/feign)组件。如果想使用，除了引入                的依赖外还需要 2 个步骤：
 
-![img](asserts/images/clip_image087.jpg)![img]()![img]()配置文件打开 sentinel 对 feign 的支持： feign.sentinel.enabled=true
+![img](asserts/images/clip_image087.jpg)配置文件打开 sentinel 对 feign 的支持： feign.sentinel.enabled=true
 
 
 
-![img](asserts/images/clip_image088.jpg)![img]()加入
+![img](asserts/images/clip_image088.jpg)加入
 
 #### （1）  引入依赖
 
@@ -1811,7 +1811,7 @@ Sentinel RestTemplate 限流的资源规则提供两种粒度：
 
 
 
-![img]()
+
 
  
 
@@ -1823,7 +1823,7 @@ Sentinel RestTemplate 限流的资源规则提供两种粒度：
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1833,13 +1833,13 @@ Sentinel RestTemplate 限流的资源规则提供两种粒度：
 
 #### （3） 配置FeignClient
 
-![img]()和使用Hystrix的方式基本一致，需要配置FeignClient接口以及通过 fallback 指定熔断降级方法
+和使用Hystrix的方式基本一致，需要配置FeignClient接口以及通过 fallback 指定熔断降级方法
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1853,7 +1853,7 @@ Sentinel RestTemplate 限流的资源规则提供两种粒度：
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1861,10 +1861,10 @@ Sentinel RestTemplate 限流的资源规则提供两种粒度：
 
 
 
-![img](asserts/images/clip_image006.jpg)![img]()
+![img](asserts/images/clip_image006.jpg)
 
  
 
-![img]()Feign 对应的接口中的资源名策略定义：httpmethod:protocol://requesturl。 @FeignClient 注解中的所有属性，Sentinel 都做了兼容。
+Feign 对应的接口中的资源名策略定义：httpmethod:protocol://requesturl。 @FeignClient 注解中的所有属性，Sentinel 都做了兼容。
 
-![img]()![img]()[ProductFeginClient 接口中方法 ﬁndById 对应的资源名为 GET:http://shop-service- product/product/{str}。](http://shop-service-product/product/)
+[ProductFeginClient 接口中方法 ﬁndById 对应的资源名为 GET:http://shop-service- product/product/{str}。](http://shop-service-product/product/)

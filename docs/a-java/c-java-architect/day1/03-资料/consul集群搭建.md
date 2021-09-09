@@ -36,19 +36,19 @@ consul agent -server -bootstrap-expect 2 -data-dir /etc/consul.d -node=server-2 
 consul agent -server -bootstrap-expect 2 -data-dir /etc/consul.d -node=server-3 -bind=192.168.74.103 -ui -client 0.0.0.0 & 
 ```
 
-> **-server**： 以server身份启动。
->
-> **-bootstrap-expect**：集群要求的最少server数量，当低于这个数量，集群即失效。
->
-> **-data-dir**：data存放的目录，更多信息请参阅consul数据同步机制
->
-> **-node**：节点id，在同一集群不能重复。
->
-> **-bind**：监听的ip地址。
->
-> **-client**：客户端的ip地址(0.0.0.0表示不限制)
->
-> **&** ：在后台运行，此为linux脚本语法 
+\> **-server**： 以server身份启动。
+\>
+\> **-bootstrap-expect**：集群要求的最少server数量，当低于这个数量，集群即失效。
+\>
+\> **-data-dir**：data存放的目录，更多信息请参阅consul数据同步机制
+\>
+\> **-node**：节点id，在同一集群不能重复。
+\>
+\> **-bind**：监听的ip地址。
+\>
+\> **-client**：客户端的ip地址(0.0.0.0表示不限制)
+\>
+\> **&** ：在后台运行，此为linux脚本语法 
 
 至此三个Consul Server模式服务全部启动成功
 

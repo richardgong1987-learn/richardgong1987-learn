@@ -2,7 +2,7 @@
 
 # 1 微服务网关概述
 
-![img]()
+
 
 在学习完前面的知识后，微服务架构已经初具雏形。但还有一些问题：不同的微服务一般会有不同的网 络地址，客户端在访问这些微服务时必须记住几十甚至几百个地址，这对于客户端方来说太复杂也难以 维护。如下图：
 
@@ -120,7 +120,7 @@ Go语言开发；轻量易用；提供大多数的功能：服务路由，负载
 
 ### 1.3.3 准备工作
 
-![img]()![img]()启动 shop_service_order 微服务，单独请求地址：http://127.0.0.1:9001/ 启动 shop_service_product 微服务,单独请求地址：http://127.0.0.1:9002/ 安装资料中提供的ngnix。找到ngnix.exe双击运行即可
+启动 shop_service_order 微服务，单独请求地址：http://127.0.0.1:9001/ 启动 shop_service_product 微服务,单独请求地址：http://127.0.0.1:9002/ 安装资料中提供的ngnix。找到ngnix.exe双击运行即可
 
 ![img](asserts/images/clip_image015.jpg)
 
@@ -134,7 +134,7 @@ Go语言开发；轻量易用；提供大多数的功能：服务路由，负载
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -142,7 +142,7 @@ Go语言开发；轻量易用；提供大多数的功能：服务路由，负载
 
 # 2 微服务网关Zuul
 
-![img]()
+
 
 ## 2.1 Zuul简介
 
@@ -162,13 +162,13 @@ Spring Cloud对Zuul进行了整合和增强
 
 #### （1） 创建工程导入依赖
 
-![img]()在IDEA中创建ZUUL网关工程 shop_zuul_server ，并添加响应依赖
+在IDEA中创建ZUUL网关工程 shop_zuul_server ，并添加响应依赖
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -178,13 +178,13 @@ Spring Cloud对Zuul进行了整合和增强
 
 #### （2） ![img](asserts/images/clip_image008.jpg)编写启动类
 
-![img]()创建启动类ZuulServerApplication
+创建启动类ZuulServerApplication
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -192,17 +192,17 @@ Spring Cloud对Zuul进行了整合和增强
 
  
 
-![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image005.jpg)![img]()@EnableZuulProxy ： 通过@EnableZuulProxy 注解开启Zuul网管功能
+![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image005.jpg)@EnableZuulProxy ： 通过@EnableZuulProxy 注解开启Zuul网管功能
 
 #### （3） 编写配置
 
-![img]()创建配置文件application.yml ，并添加相应配置
+创建配置文件application.yml ，并添加相应配置
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -218,7 +218,7 @@ Spring Cloud对Zuul进行了整合和增强
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -232,7 +232,7 @@ Spring Cloud对Zuul进行了整合和增强
 
 ![img](asserts/images/clip_image017.jpg)path：配置映射路径，这里将所有请求前缀为/product-service/的请求，转发到[http://127.0.0.1:](http://127.0.0.1/) 9002处理
 
-![img]()![img]()配置好Zuul路由之后启动服务，在浏览器中输入http://localhost:8080/product- service/product/1 ，即可访问到订单微服务。
+配置好Zuul路由之后启动服务，在浏览器中输入http://localhost:8080/product- service/product/1 ，即可访问到订单微服务。
 
  
 
@@ -258,7 +258,7 @@ Zuul支持与Eureka整合开发，根据ServiceID自动的从注册中心中获�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -272,7 +272,7 @@ Zuul支持与Eureka整合开发，根据ServiceID自动的从注册中心中获�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -286,7 +286,7 @@ Zuul支持与Eureka整合开发，根据ServiceID自动的从注册中心中获�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -302,7 +302,7 @@ Zuul支持与Eureka整合开发，根据ServiceID自动的从注册中心中获�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -314,17 +314,17 @@ Zuul支持与Eureka整合开发，根据ServiceID自动的从注册中心中获�
 
 
 
-![img]()![img]()![img](asserts/images/clip_image008.jpg)依次启动Eureka，商品微服务，API网关，在浏览器上通过访问 http://localhost:8080/product- service/product/1 查看最终效果。
+![img](asserts/images/clip_image008.jpg)依次启动Eureka，商品微服务，API网关，在浏览器上通过访问 http://localhost:8080/product- service/product/1 查看最终效果。
 
 ### 2.3.2 简化的路由配置
 
 在刚才的配置中，我们的规则是这样的：
 
-![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image005.jpg)![img]()![img]()zuul.routes.<route>.path=/xxx/** ： 来指定映射路径。 <route> 是自定义的路由名
+![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image005.jpg)zuul.routes.\<route\>.path=/xxx/** ： 来指定映射路径。 \<route\> 是自定义的路由名
 
-![img](asserts/images/clip_image010.jpg)![img](asserts/images/clip_image020.jpg)zuul.routes.<route>.serviceId=/product-service ：来指定服务名。
+![img](asserts/images/clip_image010.jpg)![img](asserts/images/clip_image020.jpg)zuul.routes.\<route\>.serviceId=/product-service ：来指定服务名。
 
-![img]()![img]()而大多数情况下，我们的<route> 路由名称往往和服务名会写成一样的。因此Zuul就提供了一种简化的配置语法： zuul.routes.<serviceId>=<path>
+而大多数情况下，我们的\<route\> 路由名称往往和服务名会写成一样的。因此Zuul就提供了一种简化的配置语法： zuul.routes.\<serviceId\>=\<path\>
 
 上面的配置可以简化为一条：
 
@@ -332,7 +332,7 @@ Zuul支持与Eureka整合开发，根据ServiceID自动的从注册中心中获�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -350,10 +350,10 @@ Zuul支持与Eureka整合开发，根据ServiceID自动的从注册中心中获�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
-![img](asserts/images/clip_image021.jpg)![img]()![img]()例如服务名为： shop-service-product ，则默认的映射路径就是： 
+![img](asserts/images/clip_image021.jpg)例如服务名为： shop-service-product ，则默认的映射路径就是： 
 
 /shop
 
@@ -407,7 +407,7 @@ Zuul提供了自定义过滤器的功能实现起来也十分简单，只需要�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -417,21 +417,21 @@ Zuul提供了自定义过滤器的功能实现起来也十分简单，只需要�
 
 ![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image005.jpg)ZuulFilter是过滤器的顶级父类。在这里我们看一下其中定义的4个最重要的方法
 
-![img](asserts/images/clip_image006.jpg)![img]()![img]()shouldFilter ：返回一个Boolean 值，判断该过滤器是否需要执行。返回true执行，返回false 不执行。
+![img](asserts/images/clip_image006.jpg)shouldFilter ：返回一个Boolean 值，判断该过滤器是否需要执行。返回true执行，返回false 不执行。
 
-![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image005.jpg)![img]()run ：过滤器的具体业务逻辑。
+![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image005.jpg)run ：过滤器的具体业务逻辑。
 
-![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image016.jpg)![img]()filterType ：返回字符串，代表过滤器的类型。包含以下4种：
+![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image016.jpg)filterType ：返回字符串，代表过滤器的类型。包含以下4种：
 
-![img](asserts/images/clip_image021.jpg)![img]()pre ：请求在被路由之前执行
+![img](asserts/images/clip_image021.jpg)pre ：请求在被路由之前执行
 
-![img](asserts/images/clip_image024.jpg)![img]()routing ：在路由请求时调用
+![img](asserts/images/clip_image024.jpg)routing ：在路由请求时调用
 
-![img](asserts/images/clip_image024.jpg)![img]()post ：在routing和errror过滤器之后调用
+![img](asserts/images/clip_image024.jpg)post ：在routing和errror过滤器之后调用
 
-![img](asserts/images/clip_image024.jpg)![img]()error ：处理请求时发生错误调用
+![img](asserts/images/clip_image024.jpg)error ：处理请求时发生错误调用
 
-![img](asserts/images/clip_image025.jpg)![img]()filterOrder ：通过返回的int值来定义过滤器的执行顺序，数字越小优先级越高。
+![img](asserts/images/clip_image025.jpg)filterOrder ：通过返回的int值来定义过滤器的执行顺序，数字越小优先级越高。
 
 ### 2.4.2 生命周期
 
@@ -475,7 +475,7 @@ Zuul提供了自定义过滤器的功能实现起来也十分简单，只需要�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -483,7 +483,7 @@ Zuul提供了自定义过滤器的功能实现起来也十分简单，只需要�
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
@@ -509,7 +509,7 @@ Zuul提供了自定义过滤器的功能实现起来也十分简单，只需要�
 
 #### （1） 初始化
 
-![img]()![img]()![img]()![img]()SpringCloud对Zuul的封装使得发布一个ZuulServer无比简单，根据自动装载原则可以在 spring- cloud-netflix-zuul-2.1.0.RELEASE.jar 下找到spring.factories
+SpringCloud对Zuul的封装使得发布一个ZuulServer无比简单，根据自动装载原则可以在 spring- cloud-netflix-zuul-2.1.0.RELEASE.jar 下找到spring.factories
 
  
 
@@ -527,7 +527,7 @@ ZuulServerAutoConfiguration，ZuulProxyAutoConfiguration 是Zuul服务端的自�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -535,13 +535,13 @@ ZuulServerAutoConfiguration，ZuulProxyAutoConfiguration 是Zuul服务端的自�
 
  
 
-![img]()![img]()ZuulProxyAutoConfiguration 继承了                          ，我们先看下这个配置类
+ZuulProxyAutoConfiguration 继承了                          ，我们先看下这个配置类
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -549,7 +549,7 @@ ZuulServerAutoConfiguration，ZuulProxyAutoConfiguration 是Zuul服务端的自�
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
@@ -565,7 +565,7 @@ FilterRegistry，那我们接下来一起看下过滤器是如何被加载到应
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -575,13 +575,13 @@ FilterRegistry，那我们接下来一起看下过滤器是如何被加载到应
 
 #### （2） ![img](asserts/images/clip_image008.jpg)请求转发
 
-![img]()![img]()在Zuul的自动配置中我们看到了ZuulHandlerMapping ，为SpringMVC中 HandlerMapping 的拓展实现，会自动的添加到HandlerMapping链中。
+在Zuul的自动配置中我们看到了ZuulHandlerMapping ，为SpringMVC中 HandlerMapping 的拓展实现，会自动的添加到HandlerMapping链中。
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -595,7 +595,7 @@ FilterRegistry，那我们接下来一起看下过滤器是如何被加载到应
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -603,17 +603,17 @@ FilterRegistry，那我们接下来一起看下过滤器是如何被加载到应
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
-![img]()![img]()![img]()![img]()在ZuulController 中的handleRequest 方法，会调用已经注册的ZuulServlet 完成业务请求，我们进入ZuulServlet 看下内部是如何处理的
+在ZuulController 中的handleRequest 方法，会调用已经注册的ZuulServlet 完成业务请求，我们进入ZuulServlet 看下内部是如何处理的
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -623,7 +623,7 @@ FilterRegistry，那我们接下来一起看下过滤器是如何被加载到应
 
 #### （3） 过滤器
 
-![img]()Zuul默认注入的过滤器可以在spring-cloud-netflix-core.jar 中找到。
+Zuul默认注入的过滤器可以在spring-cloud-netflix-core.jar 中找到。
 
 
 
@@ -647,7 +647,7 @@ FilterRegistry，那我们接下来一起看下过滤器是如何被加载到应
 
 # 3 微服务网关GateWay
 
-![img]()
+
 
 Zuul 1.x 是一个基于阻塞 IO 的 API Gateway 以及 Servlet；直到 2018 年 5 月，Zuul 2.x（基于Netty，也是非阻塞的，支持长连接）才发布，但 Spring Cloud 暂时还没有整合计划。Spring Cloud Gateway 比 Zuul 1.x 系列的性能和功能整体要好。
 
@@ -694,13 +694,13 @@ Zuul 1.x 是一个基于阻塞 IO 的 API Gateway 以及 Servlet；直到 2018 �
 
 #### （1） 创建工程导入依赖
 
-![img]()在项目中添加新的模块shop_gateway_server ，并导入依赖
+在项目中添加新的模块shop_gateway_server ，并导入依赖
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -714,19 +714,19 @@ Zuul 1.x 是一个基于阻塞 IO 的 API Gateway 以及 Servlet；直到 2018 �
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
 **（3）** **编写配置文件**
 
-![img]()创建application.yml 配置文件
+创建application.yml 配置文件
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -738,7 +738,7 @@ Zuul 1.x 是一个基于阻塞 IO 的 API Gateway 以及 Servlet；直到 2018 �
 
 ![img](asserts/images/clip_image040.jpg)![img](asserts/images/clip_image041.jpg)predicates：路由条件，Predicate  接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将       Predicate       组合成其他复杂的逻辑（比如：与，或，非）。ﬁlters：过滤规则，暂时没用。
 
-![img]()![img]()![img]()上面这段配置的意思是，配置了一个 id 为 product-service的路由规则，当访问网关请求地址以product 开头时，会自动转发到地址： http://127.0.0.1:9002/ 。配置完成启动项目即可在浏览器访问进行测试，当我们访问地址http://localhost:8080/product/1 时会展示页面展示如下：
+上面这段配置的意思是，配置了一个 id 为 product-service的路由规则，当访问网关请求地址以product 开头时，会自动转发到地址： http://127.0.0.1:9002/ 。配置完成启动项目即可在浏览器访问进行测试，当我们访问地址http://localhost:8080/product/1 时会展示页面展示如下：
 
  
 
@@ -766,7 +766,7 @@ Spring Cloud Gateway 的功能很强大，前面我们只是使用了 predicates
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -774,7 +774,7 @@ Spring Cloud Gateway 的功能很强大，前面我们只是使用了 predicates
 
 
 
-![img]()![img](asserts/images/clip_image008.jpg)spring: cloud:
+![img](asserts/images/clip_image008.jpg)spring: cloud:
 
 gateway: routes:
 
@@ -842,7 +842,7 @@ gateway: routes:
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
@@ -858,7 +858,7 @@ gateway: routes:
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -868,13 +868,13 @@ gateway: routes:
 
 #### （2） 配置动态路由
 
-![img]()修改application.yml 配置文件，添加eureka注册中心的相关配置，并修改访问映射的URL为服务名称
+修改application.yml 配置文件，添加eureka注册中心的相关配置，并修改访问映射的URL为服务名称
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -882,7 +882,7 @@ gateway: routes:
 
  
 
-![img](asserts/images/clip_image033.jpg)![img]()uri ： uri以lb: //开头（lb代表从注册中心获取服务），后面接的就是你需要转发到的服务名称
+![img](asserts/images/clip_image033.jpg)uri ： uri以lb: //开头（lb代表从注册中心获取服务），后面接的就是你需要转发到的服务名称
 
 ### 3.2.4 重写转发路径
 
@@ -890,25 +890,25 @@ gateway: routes:
 
 #### （1） 案例改造
 
-![img]()![img]()修改application.yml ，将匹配路径改为/product-service/**
+修改application.yml ，将匹配路径改为/product-service/**
 
 
 
 ![img](asserts/images/clip_image008.jpg)![img](asserts/images/clip_image046.jpg)
 
-![img]()重新启动网关，我们在浏览器访问http://127.0.0.1:8080/product-service/product/1，会抛出404。这是由于路由转发规则默认转发到商品微服务（ http://127.0.0.1:9002/product-
+重新启动网关，我们在浏览器访问http://127.0.0.1:8080/product-service/product/1，会抛出404。这是由于路由转发规则默认转发到商品微服务（ http://127.0.0.1:9002/product-
 
-![img]()![img]()）路径上，而商品微服务又没有product-service 对应的映射配置。
+）路径上，而商品微服务又没有product-service 对应的映射配置。
 
 #### （2） 添加RewritePath重写转发路径
 
-![img]()修改application.yml ，添加重写规则。
+修改application.yml ，添加重写规则。
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -916,7 +916,7 @@ gateway: routes:
 
  
 
-![img]()通过RewritePath配置重写转发的url，将/product-service/(?.*)，重写为{segment}，然后转发到订单微服务。比如在网页上请求http://localhost:8080/product-service/product，此时会将请求转发到htt p://127.0.0.1:9002/product/1（ 值得注意的是在yml文档中 $ 要写成 $\ ）
+通过RewritePath配置重写转发的url，将/product-service/(?.*)，重写为{segment}，然后转发到订单微服务。比如在网页上请求http://localhost:8080/product-service/product，此时会将请求转发到htt p://127.0.0.1:9002/product/1（ 值得注意的是在yml文档中 $ 要写成 $\ ）
 
 ## 3.3 过滤器
 
@@ -970,7 +970,7 @@ Spring Cloud Gateway 的 Filter 从作用范围可分为另外两种GatewayFilte
 | SetPath                     | 修改原始的请求路径                                           | 修改后的路径                                                 |
 | SetResponseHeader           | 修改原始响应中某个Header的值                                 | Header名称，修改后的值                                       |
 
-![img]()![img]()![img](asserts/images/clip_image008.jpg)
+![img](asserts/images/clip_image008.jpg)
 
 
 
@@ -984,9 +984,9 @@ Spring Cloud Gateway 的 Filter 从作用范围可分为另外两种GatewayFilte
 | ModifyResponseBody | 修改原始响应体的内容                                         | 修改后的响应体内容                      |
 |                    |                                                              |                                         |
 
-![img]()![img]()![img](asserts/images/clip_image008.jpg)
+![img](asserts/images/clip_image008.jpg)
 
-![img]()![img]()![img]()每个过滤器工厂都对应一个实现类，并且这些类的名称必须以GatewayFilterFactory 结尾，这是Spring Cloud Gateway的一个约定，例如 AddRequestHeader 对应的实现类为AddRequestHeaderGatewayFilterFactory 。对于这些过滤器的使用方式可以参考官方文档
+每个过滤器工厂都对应一个实现类，并且这些类的名称必须以GatewayFilterFactory 结尾，这是Spring Cloud Gateway的一个约定，例如 AddRequestHeader 对应的实现类为AddRequestHeaderGatewayFilterFactory 。对于这些过滤器的使用方式可以参考官方文档
 
 ### 3.3.3 全局过滤器
 
@@ -1044,7 +1044,7 @@ Spring Cloud Gateway内部也是通过一系列的内置全局过滤器对整个
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1052,7 +1052,7 @@ Spring Cloud Gateway内部也是通过一系列的内置全局过滤器对整个
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
@@ -1060,9 +1060,9 @@ Spring Cloud Gateway内部也是通过一系列的内置全局过滤器对整个
 
 ![img](asserts/images/clip_image051.jpg)在getOrder方法指定此过滤器的优先级，返回值越大级别越低
 
-![img](asserts/images/clip_image051.jpg)![img]()![img]()就相当于当前请求和响应的上下文，存放着重要的请求-响应属性、请求实例和响应实例等等。一个请求中的request，response都可以通过 ServerWebExchange 获取
+![img](asserts/images/clip_image051.jpg)就相当于当前请求和响应的上下文，存放着重要的请求-响应属性、请求实例和响应实例等等。一个请求中的request，response都可以通过 ServerWebExchange 获取
 
-![img](asserts/images/clip_image041.jpg)![img]()调用chain.filter 继续向下游执行
+![img](asserts/images/clip_image041.jpg)调用chain.filter 继续向下游执行
 
 ## 3.5 网关限流
 
@@ -1120,7 +1120,7 @@ Spring Cloud Gateway内部也是通过一系列的内置全局过滤器对整个
 
 ### 3.5.2 基于Filter的限流
 
-![img]()SpringCloudGateway官方就提供了基于令牌桶的限流支持。基于其内置的过滤器工厂RequestRateLimiterGatewayFilterFactory 实现。在过滤器工厂中是通过Redis和lua脚本结合的方式进行流量控制。
+SpringCloudGateway官方就提供了基于令牌桶的限流支持。基于其内置的过滤器工厂RequestRateLimiterGatewayFilterFactory 实现。在过滤器工厂中是通过Redis和lua脚本结合的方式进行流量控制。
 
 #### （1） 环境搭建
 
@@ -1132,7 +1132,7 @@ Spring Cloud Gateway内部也是通过一系列的内置全局过滤器对整个
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1150,7 +1150,7 @@ Spring Cloud Gateway内部也是通过一系列的内置全局过滤器对整个
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1158,11 +1158,11 @@ Spring Cloud Gateway内部也是通过一系列的内置全局过滤器对整个
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
-![img]()在application.yml 中添加了redis的信息，并配置了RequestRateLimiter的限流过滤器：
+在application.yml 中添加了redis的信息，并配置了RequestRateLimiter的限流过滤器：
 
 ![img](asserts/images/clip_image057.jpg)![img](asserts/images/clip_image033.jpg)burstCapacity，令牌桶总容量。replenishRate，令牌桶每秒填充平均速率。
 
@@ -1178,7 +1178,7 @@ Spring Cloud Gateway内部也是通过一系列的内置全局过滤器对整个
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1186,7 +1186,7 @@ Spring Cloud Gateway内部也是通过一系列的内置全局过滤器对整个
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
@@ -1246,13 +1246,13 @@ Sentinel 支持对 Spring Cloud Gateway、Zuul 等主流的 API Gateway 进行�
 
 Sentinel 1.6.0 引入了 Sentinel API Gateway Adapter Common 模块，此模块中包含网关限流的规则和自定义 API 的实体和管理逻辑：
 
-![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image029.jpg)![img]()GatewayFlowRule ：网关限流规则，针对 API Gateway 的场景定制的限流规则，可以针对不同route 或自定义的 API 分组进行限流，支持针对请求中的参数、Header、来源 IP 等进行定制化的限流。
+![img](file:////Users/richard/Library/Group%20Containers/UBF8T346G9.Office/TemporaryItems/msohtmlclip/clip_image029.jpg)GatewayFlowRule ：网关限流规则，针对 API Gateway 的场景定制的限流规则，可以针对不同route 或自定义的 API 分组进行限流，支持针对请求中的参数、Header、来源 IP 等进行定制化的限流。
 
-![img](asserts/images/clip_image067.jpg)![img]()![img]()![img]()ApiDefinition ：用户自定义的 API 定义分组，可以看做是一些 URL 匹配的组合。比如我们可以
+![img](asserts/images/clip_image067.jpg)ApiDefinition ：用户自定义的 API 定义分组，可以看做是一些 URL 匹配的组合。比如我们可以
 
 
 
-![img]()![img]()定义一个 API 叫 my_api ，请求 path 模式为        和
+定义一个 API 叫 my_api ，请求 path 模式为        和
 
 
 
@@ -1274,7 +1274,7 @@ Sentinel 1.6.0 引入了 Sentinel API Gateway Adapter Common 模块，此模块�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1288,7 +1288,7 @@ Sentinel 1.6.0 引入了 Sentinel API Gateway Adapter Common 模块，此模块�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1300,11 +1300,11 @@ Sentinel 1.6.0 引入了 Sentinel API Gateway Adapter Common 模块，此模块�
 
  
 
-![img]()![img](asserts/images/clip_image069.jpg)基于Sentinel  的Gateway限流是通过其提供的Filter来完成的，使用时只需注入对应的
+![img](asserts/images/clip_image069.jpg)基于Sentinel  的Gateway限流是通过其提供的Filter来完成的，使用时只需注入对应的
 
-![img]()![img]()实例以及                                  实例即可。
+实例以及                                  实例即可。
 
-![img](asserts/images/clip_image033.jpg)![img]()![img]()@PostConstruct定义初始化的加载方法，用于指定资源的限流规则。这里资源的名称为order- service ，统计时间是1秒内，限流阈值是1。表示每秒只能访问一个请求。
+![img](asserts/images/clip_image033.jpg)@PostConstruct定义初始化的加载方法，用于指定资源的限流规则。这里资源的名称为order- service ，统计时间是1秒内，限流阈值是1。表示每秒只能访问一个请求。
 
 #### （3） 网关配置
 
@@ -1312,7 +1312,7 @@ Sentinel 1.6.0 引入了 Sentinel API Gateway Adapter Common 模块，此模块�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1320,7 +1320,7 @@ Sentinel 1.6.0 引入了 Sentinel API Gateway Adapter Common 模块，此模块�
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
@@ -1345,15 +1345,15 @@ y/1就可以看到限流启作用了。
 
 当触发限流后页面显示的是Blocked by Sentinel: FlowException。为了展示更加友好的限流提示， Sentinel支持自定义异常处理。
 
-![img]()您可以在                     注册回调进行定制：
+您可以在                     注册回调进行定制：
 
-![img](asserts/images/clip_image056.jpg)![img]()![img]()![img]()![img]()setBlockHandler ：注册函数用于实现自定义的逻辑处理被限流的请求，对应接口为BlockRequestHandler 。默认实现为 DefaultBlockRequestHandler ，当被限流时会返回类似于下面的错误信息： Blocked by Sentinel: FlowException 。
+![img](asserts/images/clip_image056.jpg)setBlockHandler ：注册函数用于实现自定义的逻辑处理被限流的请求，对应接口为BlockRequestHandler 。默认实现为 DefaultBlockRequestHandler ，当被限流时会返回类似于下面的错误信息： Blocked by Sentinel: FlowException 。
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1369,7 +1369,7 @@ y/1就可以看到限流启作用了。
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
@@ -1381,7 +1381,7 @@ y/1就可以看到限流启作用了。
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1403,13 +1403,13 @@ y/1就可以看到限流启作用了。
 
 #### （1） 准备多个GateWay工程
 
-![img]()修改shop_gateway_server 的application.yml。添加如下配置
+修改shop_gateway_server 的application.yml。添加如下配置
 
  
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1417,7 +1417,7 @@ y/1就可以看到限流启作用了。
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
@@ -1431,7 +1431,7 @@ y/1就可以看到限流启作用了。
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1447,11 +1447,11 @@ y/1就可以看到限流启作用了。
 
 ![img](asserts/images/clip_image008.jpg)![img](asserts/images/clip_image075.jpg)
 
-![img]()![img]()![img]()![img]()![img]()![img]()![img]()![img]()![img]()Spring Cloud Gateway 核心处理流程如上图所示，Gateway的客户端向 Spring Cloud Gateway 发送请求，请求首先被HttpWebHandlerAdapter 进行提取组装成网关上下文，然后网关的上下文会传递到DispatcherHandler 。 DispatcherHandler 是所有请求的分发处理器， DispatcherHandler 主要负责分发请求对应的处理器。比如请求分发到对应的RoutePredicateHandlerMapping （路由断言处理映射器）。路由断言处理映射器主要作用用于路由查找，以及找到路由后返回对应的FilterWebHandler 。 FilterWebHandler 主要负责组装Filter链并调用Filter执行一系列的Filter处理， 然后再把请求转到后端对应的代理服务处理，处理完毕之后将Response返回到Gateway客户端。
+Spring Cloud Gateway 核心处理流程如上图所示，Gateway的客户端向 Spring Cloud Gateway 发送请求，请求首先被HttpWebHandlerAdapter 进行提取组装成网关上下文，然后网关的上下文会传递到DispatcherHandler 。 DispatcherHandler 是所有请求的分发处理器， DispatcherHandler 主要负责分发请求对应的处理器。比如请求分发到对应的RoutePredicateHandlerMapping （路由断言处理映射器）。路由断言处理映射器主要作用用于路由查找，以及找到路由后返回对应的FilterWebHandler 。 FilterWebHandler 主要负责组装Filter链并调用Filter执行一系列的Filter处理， 然后再把请求转到后端对应的代理服务处理，处理完毕之后将Response返回到Gateway客户端。
 
 # 4 微服务的链路追踪概述
 
-![img]()
+
 
 ## 4.1 微服务架构下的问题
 
@@ -1517,7 +1517,7 @@ span在不断的启动和停止，同时记录了时间信息，当你创建了�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1533,7 +1533,7 @@ span在不断的启动和停止，同时记录了时间信息，当你创建了�
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1555,7 +1555,7 @@ span在不断的启动和停止，同时记录了时间信息，当你创建了�
 
 其中ff8ff8b803a3b558 是TraceId，后面跟着的是SpanId，依次调用有一个全局的TraceId，将调用链路串起来。仔细分析每个微服务的日志，不难看出请求的具体过程。
 
-![img]()查看日志文件并不是一个很好的方法，当微服务越来越多日志文件也会越来越多，通过Zipkin可以将日 志聚合，并进行可视化展示和全文检索。
+查看日志文件并不是一个很好的方法，当微服务越来越多日志文件也会越来越多，通过Zipkin可以将日 志聚合，并进行可视化展示和全文检索。
 
 ## 4.4 Zipkin的概述
 
@@ -1593,7 +1593,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
 
 
-![img](asserts/images/clip_image039.jpg)![img]()![img](asserts/images/clip_image088.jpg)![img](asserts/images/clip_image008.jpg)一个 Eureka 服务注册中心，这里我们就用之前的一个 Zipkin 服务端。
+![img](asserts/images/clip_image039.jpg)![img](asserts/images/clip_image088.jpg)![img](asserts/images/clip_image008.jpg)一个 Eureka 服务注册中心，这里我们就用之前的一个 Zipkin 服务端。
 
 ![img](asserts/images/clip_image089.jpg)多个微服务，这些微服务中配置Zipkin  客户端。
 
@@ -1611,7 +1611,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 从spring boot 2.0开始，官方就不再支持使用自建Zipkin Server的方式进行服务链路追踪，而是直接提供了编译好的 jar 包来给我们使用。可以从官方网站下载[先下载Zipkin的web UI](https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec)，我们这里下载的是
@@ -1622,7 +1622,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
 #### （2） 启动
 
-![img]()在命令行输入 java -jar zipkin-server-2.12.9-exec.jar 启动 Zipkin Server
+在命令行输入 java -jar zipkin-server-2.12.9-exec.jar 启动 Zipkin Server
 
  
 
@@ -1652,7 +1652,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1666,7 +1666,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1678,7 +1678,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
 （3）  测试
 
-![img]()以此启动每个微服务，启动Zipkin Service。通过浏览器发送一次微服务请求。打开 Zipkin Service
+以此启动每个微服务，启动Zipkin Service。通过浏览器发送一次微服务请求。打开 Zipkin Service
 
 控制台，我们可以根据条件追踪每次请求调用过程
 
@@ -1729,7 +1729,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
@@ -1749,7 +1749,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
  
 
-![img]()其中 zipkin 就是为我们自动创建的Queue队列
+其中 zipkin 就是为我们自动创建的Queue队列
 
 ### 7.7.3 客户端配置
 
@@ -1759,7 +1759,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1767,7 +1767,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
  
 
-![img]()导入 spring-rabbit 依赖，是Spring提供的对rabbit的封装，客户端会根据配置自动的生产消息并发送到目标队列中
+导入 spring-rabbit 依赖，是Spring提供的对rabbit的封装，客户端会根据配置自动的生产消息并发送到目标队列中
 
 #### （2） 配置消息中间件rabbit mq地址等信息
 
@@ -1775,7 +1775,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1783,7 +1783,7 @@ Zipkin 分为两端，一个是 Zipkin 服务端，一个是 Zipkin 客户端，
 
 
 
-![img](asserts/images/clip_image008.jpg)![img]()
+![img](asserts/images/clip_image008.jpg)
 
  
 
@@ -1813,7 +1813,7 @@ Zipkin  Server默认时间追踪数据信息保存到内存，这种方式不适
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
@@ -1821,7 +1821,7 @@ Zipkin  Server默认时间追踪数据信息保存到内存，这种方式不适
 
 
 
-![img]()![img](asserts/images/clip_image008.jpg)ALTER TABLE zipkin_spans ADD INDEX(`trace_id_high`, `trace_id`, `id`) COMMENT 'for joining with zipkin_annotations';
+![img](asserts/images/clip_image008.jpg)ALTER TABLE zipkin_spans ADD INDEX(`trace_id_high`, `trace_id`, `id`) COMMENT 'for joining with zipkin_annotations';
 
 ALTER TABLE zipkin_spans ADD INDEX(`trace_id_high`, `trace_id`) COMMENT 'for getTracesByIds';
 
@@ -1927,7 +1927,7 @@ ALTER TABLE zipkin_dependencies ADD UNIQUE KEY(`day`, `parent`, `child`);
 
 |      |          |
 | ---- | -------- |
-|      | ![img]() |
+|      |  |
 
 
 
