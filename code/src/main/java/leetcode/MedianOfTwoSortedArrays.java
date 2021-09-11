@@ -1,53 +1,67 @@
 package leetcode;
 
 public class MedianOfTwoSortedArrays {
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        // Check if num1 is smaller than num2
-        // If not, then we will swap num1 with num2
-        if (nums1.length > nums2.length) {
-            return findMedianSortedArrays(nums2, nums1);
+    /**
+     * https://mp.weixin.qq.com/s/OE4lHO8-jOIxIfWO_1oNpQ
+     */
+    public double findMedianSortedArrays(int[] A, int[] B) {
+        int m = A.length;
+        int n = B.length;
+
+        if (A.length > B.length) {
+            return findMedianSortedArrays(B, A);
         }
-        // Lengths of two arrays
-        int m = nums1.length;
-        int n = nums2.length;
-        // Pointers for binary search
+
         int start = 0;
         int end = m;
-        // Binary search starts from here
+        int mid = (m + n + 1) / 2;
+
         while (start <= end) {
-            // Partitions of both the array
-            int partitionNums1 = (start + end) / 2;
-            int partitionNums2 = (m + n + 1) / 2 - partitionNums1;
-            // Edge cases
-            // If there are no elements left on the left side after partition
-            int maxLeftNums1 = partitionNums1 == 0 ? Integer.MIN_VALUE : nums1[partitionNums1 - 1];
-            // If there are no elements left on the right side after partition
-            int minRightNums1 = partitionNums1 == m ? Integer.MAX_VALUE : nums1[partitionNums1];
-            // Similarly for nums2
-            int maxLeftNums2 = partitionNums2 == 0 ? Integer.MIN_VALUE : nums2[partitionNums2 - 1];
-            int minRightNums2 = partitionNums2 == n ? Integer.MAX_VALUE : nums2[partitionNums2];
-            // Check if we have found the match
-            if (maxLeftNums1 <= minRightNums2 && maxLeftNums2 <= minRightNums1) {
-                // Check if the combined array is of even/odd length
-                if ((m + n) % 2 == 0) {
-                    return (Math.max(maxLeftNums1, maxLeftNums2) + Math.min(minRightNums1, minRightNums2)) / 2.0;
+            int i = (start + end) / 2;
+            int j = mid - i;
+            if (i < end && B[j - 1] > A[i]) {
+                /*i偏小了，需要右移*/
+                start = i + 1;
+            } else if (i > start && A[i - 1] > B[j]) {
+                /*i偏大了，需要左移*/
+                end = i - 1;
+            } else {
+                /*i刚好合适*/
+                int maxLeft;
+                if (i == 0) {
+                    /*数组A的元素都大于数组B的情况*/
+                    maxLeft = B[j - 1];
+                } else if (j == 0) {
+                    /*数组A的元素都小于数组B的情况*/
+                    maxLeft = A[i - 1];
                 } else {
-                    return Math.max(maxLeftNums1, maxLeftNums2);
+                    maxLeft = Math.max(A[i - 1], B[j - 1]);
                 }
-            }
-            // If we are too far on the right, we need to go to left side
-            else if (maxLeftNums1 > minRightNums2) {
-                end = partitionNums1 - 1;
-            }
-            // If we are too far on the left, we need to go to right side
-            else {
-                start = partitionNums1 + 1;
+
+                if ((m + n) % 2 == 1) {
+                    /*如果大数组的长度是奇数，中位数就是左半部分的最大值*/
+                    return maxLeft;
+                }
+
+                int minRight;
+                if (i == m) {
+                    minRight = B[j];
+                } else if (j == n) {
+                    minRight = A[i];
+                } else {
+                    minRight = Math.min(B[j], A[i]);
+                }
+
+                /*如果大数组的长度是偶数，取左侧最大值和右侧最小值的平均*/
+                return (maxLeft + minRight) / 2.0;
             }
         }
-        throw new IllegalArgumentException();
+        return 0.0;
     }
 
     public static void main(String[] args) {
-
+        MedianOfTwoSortedArrays medianOfTwoSortedArrays = new MedianOfTwoSortedArrays();
+        double medianSortedArrays = medianOfTwoSortedArrays.findMedianSortedArrays(new int[]{1, 2}, new int[]{3, 4});
+        System.out.println(medianSortedArrays);
     }
 }
