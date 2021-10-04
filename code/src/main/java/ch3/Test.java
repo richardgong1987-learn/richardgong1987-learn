@@ -1,79 +1,70 @@
 package ch3;
 
-import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Test {
-    public static class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
+	public static class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
 
-        TreeNode() {
-        }
+		TreeNode() {
+		}
 
-        TreeNode(int val) {
-            this.val = val;
-        }
+		TreeNode(int val) {
+			this.val = val;
+		}
 
-        TreeNode(int val, TreeNode left, TreeNode right) {
-            this.val = val;
-            this.left = left;
-            this.right = right;
-        }
-    }
-
-    public static void flatten(TreeNode root) {
-        //base case;
-        if (root == null) {
-            return;
-        }
-
-        flatten(root.left);
-        flatten(root.right);
+		TreeNode(int val, TreeNode left, TreeNode right) {
+			this.val = val;
+			this.left = left;
+			this.right = right;
+		}
+	}
 
 
-        TreeNode left = root.left;
-        TreeNode right = root.right;
+	public static void main(String[] args) {
+		TreeNode treeNode = new TreeNode(1, new TreeNode(2), new TreeNode(3));
 
+		treeNode.left.left = new TreeNode(4);
 
-        root.left = null;
-        root.right = left;
+		treeNode.right.left = new TreeNode(2);
+		treeNode.right.right = new TreeNode(4);
 
+		treeNode.right.left.left = new TreeNode(4);
 
-        TreeNode p = root;
-        while (p.right != null) {
-            p = p.right;
-        }
-        p.right = right;
+		findDuplicateSubtrees(treeNode);
+	}
 
-    }
+	// 记录所有子树以及出现的次数
+	static HashMap<String, Integer> memo = new HashMap<>();
+	// 记录重复的子树根节点
+	static LinkedList<TreeNode> res = new LinkedList<>();
 
-    public static void main(String[] args) {
-        LinkedList<Integer> inputList = new LinkedList<Integer>(Arrays.asList(new Integer[]{1,2,5,3,4,null,6}));
-        TreeNode treeNode = createBinaryTree(inputList);
-        flatten(treeNode);
+	/* 主函数 */
+	static List<TreeNode> findDuplicateSubtrees(TreeNode root) {
+		traverse(root);
+		return res;
+	}
 
-    }
+	/* 辅助函数 */
+	static String traverse(TreeNode root) {
+		if (root == null) {
+			return "#";
+		}
 
-    /**
-     * 构建二叉树
-     *
-     * @param inputList 输入序列
-     */
-    public static TreeNode createBinaryTree(LinkedList<Integer> inputList) {
-        TreeNode node = null;
-        if (inputList == null || inputList.isEmpty()) {
-            return null;
-        }
-        Integer data = inputList.removeFirst();
-        //这里的判空很关键。如果元素是空，说明该节点不存在，跳出这一层递归；如果元素非空，继续递归构建该节点的左右孩子。
-        if (data != null) {
-            node = new TreeNode(data);
-            node.left = createBinaryTree(inputList);
-            node.right = createBinaryTree(inputList);
-        }
-        return node;
-    }
+		String left = traverse(root.left);
+		String right = traverse(root.right);
 
+		String subTree = left + "," + right + "," + root.val;
+
+		int freq = memo.getOrDefault(subTree, 0);
+		// 多次重复也只会被加入结果集一次
+		if (freq == 1) {
+			res.add(root);
+		}
+		// 给子树对应的出现次数加一
+		memo.put(subTree, freq + 1);
+		return subTree;
+	}
 }
