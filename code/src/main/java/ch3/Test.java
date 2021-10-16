@@ -24,47 +24,67 @@ public class Test {
 
 
 	public static void main(String[] args) {
-		TreeNode treeNode = new TreeNode(1, new TreeNode(2), new TreeNode(3));
+		TreeNode root = deserialize("3,5,1,6,2,0,8,#,#,7,4");
+		System.out.println(root);
 
-		treeNode.left.left = new TreeNode(4);
-
-		treeNode.right.left = new TreeNode(2);
-		treeNode.right.right = new TreeNode(4);
-
-		treeNode.right.left.left = new TreeNode(4);
-
-		findDuplicateSubtrees(treeNode);
+		TreeNode lca = LCA(root, root.left.left, root.left.right.right);
+		System.out.println(lca.val);
 	}
 
-	// 记录所有子树以及出现的次数
-	static HashMap<String, Integer> memo = new HashMap<>();
-	// 记录重复的子树根节点
-	static LinkedList<TreeNode> res = new LinkedList<>();
-
-	/* 主函数 */
-	static List<TreeNode> findDuplicateSubtrees(TreeNode root) {
-		traverse(root);
-		return res;
-	}
-
-	/* 辅助函数 */
-	static String traverse(TreeNode root) {
+	static TreeNode LCA(TreeNode root, TreeNode p, TreeNode q) {
+		//base case
 		if (root == null) {
-			return "#";
+			return null;
 		}
-
-		String left = traverse(root.left);
-		String right = traverse(root.right);
-
-		String subTree = left + "," + right + "," + root.val;
-
-		int freq = memo.getOrDefault(subTree, 0);
-		// 多次重复也只会被加入结果集一次
-		if (freq == 1) {
-			res.add(root);
+		if (root == p || root == q) {
+			return root;
 		}
-		// 给子树对应的出现次数加一
-		memo.put(subTree, freq + 1);
-		return subTree;
+		TreeNode left = LCA(root.left, p, q);
+		TreeNode right = LCA(root.right, p, q);
+		// 情况1
+		if (left != null && right != null) {
+			return root;
+		}
+		// 情况2
+		if (left == null && right == null) {
+			return null;
+		}
+		return left == null ? right : left;
+
 	}
+
+	static String SEP = ",";
+	static String NULL = "#";
+
+	static TreeNode deserialize(String data) {
+		if (data.isEmpty()) {
+			return null;
+		}
+		String[] nodes = data.split(SEP);
+		TreeNode root = new TreeNode(Integer.parseInt(nodes[0]));
+		LinkedList<TreeNode> q = new LinkedList<>();
+		q.offer(root);
+
+		for (int i = 1; i < nodes.length; ) {
+			TreeNode parent = q.poll();
+			String left = nodes[i++];
+			if (!left.equals(NULL)) {
+				parent.left = new TreeNode(Integer.parseInt(left));
+				q.offer(parent.left);
+			} else {
+				parent.left = null;
+			}
+
+			String right = nodes[i++];
+			if (!right.equals(NULL)) {
+				parent.right = new TreeNode(Integer.parseInt(right));
+				q.offer(parent.right);
+			} else {
+				parent.right = null;
+			}
+		}
+		return root;
+
+	}
+
 }

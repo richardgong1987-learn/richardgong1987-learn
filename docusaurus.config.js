@@ -7,11 +7,11 @@ module.exports = {
     tagline: '学习大使',
     url: 'https://richardgong1987-learn.github.io',
     baseUrl: '/richardgong1987-learn/',
+    organizationName: 'richardgong1987-learn', // Usually your GitHub org/user name.
+    projectName: 'richardgong1987-learn', // Usually your repo name.
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
-    organizationName: 'richardgong1987-learn', // Usually your GitHub org/user name.
-    projectName: 'richardgong1987-learn', // Usually your repo name.
     themeConfig: {
         navbar: {
             title: '学习大使',
