@@ -1,6 +1,8 @@
 package leetcode;
 
 import ch3.BinaryTreeTraversal;
+import util.TreeNode;
+import util.Utils;
 
 import java.util.*;
 
@@ -8,8 +10,7 @@ public class Leetcode199 {
 
 	public static void main(String[] args) {
 		Leetcode199 leetcode199 = new Leetcode199();
-		TreeNode binaryTree = leetcode199.deserialize("1,2,3,null,5,null,4");
-		List<Integer> integers1 = leetcode199.rightSideView(binaryTree);
+		List<Integer> integers1 = leetcode199.rightSideView(Utils.deserialize("1,2,3,null,5,null,4"));
 		System.out.println(integers1);
 	}
 
@@ -36,88 +37,31 @@ public class Leetcode199 {
 		return res;
 	}
 
-//	public List<Integer> rightSideView(TreeNode root) {
-//		List<Integer> result = new LinkedList<>();
-//		Queue<TreeNode> queue = new LinkedList<>();
-//		Queue<Integer> levelQueue = new LinkedList<>();
-//		if (root == null) {
-//			return result;
-//		}
-//		queue.add(root);
-//		levelQueue.add(1);
-//		while (!queue.isEmpty()) {
-//			TreeNode node = queue.poll();
-//			int level = levelQueue.poll();
-//			if (levelQueue.isEmpty() || levelQueue.peek() != level) {
-//				result.add(node.val);
-//			}
-//			if (node.left != null) {
-//				queue.add(node.left);
-//				levelQueue.add(level + 1);
-//			}
-//			if (node.right != null) {
-//				queue.add(node.right);
-//				levelQueue.add(level + 1);
-//			}
-//		}
-//		return result;
-//	}
-
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode() {
+	public List<Integer> rightSideView2(TreeNode root) {
+		List<Integer> result = new LinkedList<>();
+		Queue<TreeNode> queue = new LinkedList<>();
+		Queue<Integer> levelQueue = new LinkedList<>();
+		if (root == null) {
+			return result;
 		}
-
-		TreeNode(int val) {
-			this.val = val;
-		}
-	}
-
-	/**
-	 * 构建二叉树
-	 *
-	 * @param inputList 输入序列
-	 */
-
-	String SEP = ",";
-	String NULL = "null";
-
-	/* 将字符串反序列化为二叉树结构 */
-	public TreeNode deserialize(String data) {
-		if (data.isEmpty()) return null;
-		String[] nodes = data.split(SEP);
-		// 第一个元素就是 root 的值
-		TreeNode root = new TreeNode(Integer.parseInt(nodes[0]));
-
-		// 队列 q 记录父节点，将 root 加入队列
-		Queue<TreeNode> q = new LinkedList<>();
-		q.offer(root);
-
-		for (int i = 1; i < nodes.length; ) {
-			// 队列中存的都是父节点
-			TreeNode parent = q.poll();
-			// 父节点对应的左侧子节点的值
-			String left = nodes[i++];
-			if (!left.equals(NULL)) {
-				parent.left = new TreeNode(Integer.parseInt(left));
-				q.offer(parent.left);
-			} else {
-				parent.left = null;
+		queue.add(root);
+		levelQueue.add(1);
+		while (!queue.isEmpty()) {
+			TreeNode node = queue.poll();
+			int level = levelQueue.poll();
+			if (levelQueue.isEmpty() || levelQueue.peek() != level) {
+				result.add(node.val);
 			}
-			// 父节点对应的右侧子节点的值
-			String right = nodes[i++];
-			if (!right.equals(NULL)) {
-				parent.right = new TreeNode(Integer.parseInt(right));
-				q.offer(parent.right);
-			} else {
-				parent.right = null;
+			if (node.left != null) {
+				queue.add(node.left);
+				levelQueue.add(level + 1);
+			}
+			if (node.right != null) {
+				queue.add(node.right);
+				levelQueue.add(level + 1);
 			}
 		}
-		return root;
+		return result;
 	}
-
 
 }
