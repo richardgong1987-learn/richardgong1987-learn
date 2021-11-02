@@ -30,4 +30,24 @@ public class Leetcode337 {
 	}
 
 
+	private final int NOT_ROB = 0;
+	private final int ROB = 1;
+
+	public int rob2(TreeNode root) {
+		int[] result = robInternal(root);
+		return Math.max(result[NOT_ROB], result[ROB]);
+	}
+
+	private int[] robInternal(TreeNode root) {
+		int[] res = new int[2];
+		if (root == null) return res;
+
+		int[] left = robInternal(root.left);
+		int[] right = robInternal(root.right);
+
+		res[NOT_ROB] = Math.max(left[NOT_ROB], left[ROB]) + Math.max(right[NOT_ROB], right[ROB]);
+		res[ROB] = left[NOT_ROB] + right[NOT_ROB] + root.val;
+
+		return res;
+	}
 }
