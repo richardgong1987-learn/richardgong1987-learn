@@ -28,12 +28,6 @@ module.exports = {
                 },
                 {
                     type: 'doc',
-                    docId: 'b-rust/intro',
-                    position: 'left',
-                    label: 'Rust架构师',
-                },
-                {
-                    type: 'doc',
                     docId: 'c-computer/intro',
                     position: 'right',
                     label: '计算机科学',
