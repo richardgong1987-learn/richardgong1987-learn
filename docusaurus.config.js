@@ -16,8 +16,8 @@ module.exports = {
         navbar: {
             title: '学习大使',
             logo: {
-                alt: 'My Site Logo',
-                src: 'img/logo.svg',
+                alt: '',
+                src: '/img/logo.svg',
             },
             items: [
                 {
