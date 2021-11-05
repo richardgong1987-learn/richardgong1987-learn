@@ -55,7 +55,7 @@ public class Leetcode322 {
 	}
 
 	public static void main(String[] args) {
-		int i = coinChange2(new int[]{1, 2, 3}, 5);
+		int i = coinChange2(new int[]{1}, 3);
 		System.out.println(i);
 	}
 }
