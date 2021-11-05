@@ -58,4 +58,35 @@ public class Leetcode322 {
 		int i = coinChange2(new int[]{1}, 3);
 		System.out.println(i);
 	}
+
+	int coinChangeCPP(int[] coins, int amount) {
+		// Initialize DP array with INT_MAX and dp[0]=0
+		int[] dp = new int[amount + 1];
+		dp[0] = 0;
+
+		Arrays.fill(dp, Integer.MAX_VALUE);
+
+		// Fill DP array from amount=1 to amount's actual value
+		for (int i = 1; i <= amount; ++i) {
+			// Try to include all the coins one by one
+			for (int j = 0; j < coins.length; ++j) {
+				// If this coin is usable(value less than current amount)
+				if (coins[j] <= i) {
+					// What is the cost for rest of the amount
+					// If I use this coin
+					// eg. if amount=8 and coins[j]=5 then rest is min cost
+					// for 8-5 = 3
+					int rest = dp[i - coins[j]];
+					// If including this coin gives lesser value
+					// than current min value then include it
+					if (rest != Integer.MAX_VALUE && rest + 1 < dp[i]) {
+						// update min value for amount=i
+						dp[i] = rest + 1;
+					}
+				}
+			}
+		}
+		return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+	}
+
 }
