@@ -33,38 +33,18 @@ public class Leetcode322 {
 		return memo[amount];
 	}
 
-	static int coinChange2(int[] coins, int amount) {
-		int[] dp = new int[amount + 1];
-		// 数组大小为 amount + 1，初始值也为 amount + 1
-		Arrays.fill(dp, amount + 1);
-
-		// base case
-		dp[0] = 0;
-		// 外层 for 循环在遍历所有状态的所有取值
-		for (int i = 0; i < dp.length; i++) {
-			// 内层 for 循环在求所有选择的最小值
-			for (int coin : coins) {
-				// 子问题无解，跳过
-				if (i - coin < 0) {
-					continue;
-				}
-				dp[i] = Math.min(dp[i], 1 + dp[i - coin]);
-			}
-		}
-		return (dp[amount] == amount + 1) ? -1 : dp[amount];
-	}
 
 	public static void main(String[] args) {
-		int i = coinChange2(new int[]{1}, 3);
-		System.out.println(i);
+//		int i = coinChangeCPP(new int[]{9, 6, 5, 1}, 11);
+		coinChangeWu(new int[]{1, 2, 5, 7, 10}, 8);
 	}
 
-	int coinChangeCPP(int[] coins, int amount) {
+	static int coinChangeCPP(int[] coins, int amount) {
 		// Initialize DP array with INT_MAX and dp[0]=0
 		int[] dp = new int[amount + 1];
+		Arrays.fill(dp, Integer.MAX_VALUE);
 		dp[0] = 0;
 
-		Arrays.fill(dp, Integer.MAX_VALUE);
 
 		// Fill DP array from amount=1 to amount's actual value
 		for (int i = 1; i <= amount; ++i) {
@@ -87,6 +67,77 @@ public class Leetcode322 {
 			}
 		}
 		return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
+	}
+
+	static int coinChangeWu(int[] coins, int amount) {
+
+		/**
+		 初始化数组dp,长度为amount +1,这是因为dp需要保存金额为0的情况
+
+		 dp[i]表示想要凑齐 i元需要的最少硬币数
+		 dp[0] 表示想要凑齐0元需要的硬币数,这里显然是0个硬币
+		 dp[1] 表示想要凑齐1元需要的最少硬币数.
+		 dp[14]需要想在凑齐14元需要的最少硬币数
+		 *
+		 */
+		/**
+		 首先将数组dp里面的值都初始化为-1
+		 -1 表示当前的金额还没有找到需要的最少硬币个数
+		 */
+		int[] dp = new int[amount + 1];
+		Arrays.fill(dp, -1);
+
+		//想到要凑齐0元的最少硬币个数,显然就是0个
+		//所以就有. 0元,需要 0个硬币
+		dp[0] = 0;
+
+		//依次计算想要凑齐1元到amount元的最少硬币个数
+		for (int i = 1; i <= amount; i++) {
+
+			/**
+			 对于每个金额 i 来说. conis中的每个面值小于 i 的硬币都可以尝试去拼凑 i
+
+			 比如. amount = 8, coins 为 [1,2,5,7,10]
+			 其中  1,2,5,7都小于8
+
+			 1可以尝试去拼凑 8
+			 2可以尝试去拼凑 8
+			 5可以尝试去拼凑 8
+			 7可以尝试去拼凑 8
+			 所以设置一个变量 j ,遍历数组 coins
+
+
+			 */
+			for (int onecoin : coins) {
+				/**
+				 1. 如果当前的硬币值onecoin小于 i , 表示这枚硬币可能可以拼凑到 i
+				 2. i - onecoin 表示面值 onecoin的硬币想要拼凑 i 需要那么面值的硬币金额. 如果为i - onecoin=0那么说明当前onecoin硬币正好匹配上 i 金额
+				 3. 而 dp[i -onecoin]表示想要凑齐 i - onecoin元最少的硬币数
+				 4. 如果dp[i - onecoin] != -1,表示想要凑齐 i - onecoin 元需要的最少硬币个数有结果
+				 */
+				if (onecoin <= i && dp[i - onecoin] != -1) {
+					/**
+					 这时候,对于金额 i 来说
+
+					 (1) 如果它之前还没有找到凑齐 i 元 需要的最少硬币数:用 dp[i] == -1来表示.
+					 或者
+					 (2) 如果此时计算的最少硬币个数比之前保存的结果dp[i]更少 (用dp[i - onecoin] + 1 < dp[i] 表示).那么更新它,
+					 (用  dp[i]  = dp[i - onecoin] + 1方式更新)
+
+					 注意: dp[i - onecoin] + 1这里的 + 1的意思是:
+					 既然dp[i -onecoin]表示想要凑齐 i - onecoin元最少的硬币数.
+					 那么凑齐i应该是 dp[i-coin]+ 当前onecoin 所以就是 + 1
+
+					 */
+					if (dp[i] == -1 || dp[i - onecoin] + 1 < dp[i]) {
+						dp[i] = dp[i - onecoin] + 1;
+					}
+
+				}
+			}
+		}
+		return dp[amount];
+
 	}
 
 }
