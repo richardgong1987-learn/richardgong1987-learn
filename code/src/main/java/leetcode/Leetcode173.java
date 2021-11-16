@@ -2,7 +2,6 @@ package leetcode;
 
 import java.util.Deque;
 import java.util.LinkedList;
-import java.util.Stack;
 
 public class Leetcode173 {
 	public class TreeNode {

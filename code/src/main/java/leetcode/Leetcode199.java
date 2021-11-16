@@ -1,6 +1,5 @@
 package leetcode;
 
-import ch3.BinaryTreeTraversal;
 import util.TreeNode;
 import util.Utils;
 

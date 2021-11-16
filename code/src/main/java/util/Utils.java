@@ -2,7 +2,6 @@ package util;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Scanner;
 
 public class Utils {
 	// for debug
