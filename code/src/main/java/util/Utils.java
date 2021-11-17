@@ -1,5 +1,6 @@
 package util;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -62,6 +63,10 @@ public class Utils {
 		}
 	}
 
-
+	public static void printArray(int[][] dbs) {
+		for (int[] db : dbs) {
+			System.out.println(Arrays.toString(db));
+		}
+	}
 
 }
