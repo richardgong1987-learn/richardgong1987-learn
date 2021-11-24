@@ -8,7 +8,7 @@ sidebar_position: 0
 
 2. ###  [java-jvm性能调优](b-java-jvm/intro)
 
-3. ###  [java服务架构](c-java-architect/intro
+3. ###  [java服务架构](c-java-architect/intro)
 
 4. ### [kafka问题](kafka/readme)
 
