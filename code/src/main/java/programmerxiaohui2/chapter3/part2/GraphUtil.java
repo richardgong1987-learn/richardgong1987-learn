@@ -1,4 +1,7 @@
 package programmerxiaohui2.chapter3.part2;
+
+import util.Graph;
+
 import java.util.LinkedList;
 
 public class GraphUtil {
@@ -30,32 +33,6 @@ public class GraphUtil {
         }
     }
 
-     //图的顶点
-     private static class Vertex {
-        int data;
-
-        Vertex(int data) {
-            this.data = data;
-        }
-    }
-
-    //图（邻接表形式）
-    private static class Graph {
-        private int size;
-        private Vertex[] vertexes;
-        private LinkedList<Integer>[] adj;
-
-        Graph(int size) {
-            this.size = size;
-            //初始化顶点和邻接矩阵
-            vertexes = new Vertex[size];
-            adj = new LinkedList[size];
-            for (int i = 0; i < size; i++) {
-                vertexes[i] = new Vertex(i);
-                adj[i] = new LinkedList();
-            }
-        }
-    }
 
     public static void main(String[] args) {
         Graph graph = new Graph(6);
