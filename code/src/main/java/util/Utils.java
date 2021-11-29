@@ -48,11 +48,11 @@ public class Utils {
 	}
 
 	public static Node insert(Node root, int data) {
-		if(root == null) {
+		if (root == null) {
 			return new Node(data);
 		} else {
 			Node cur;
-			if(data <= root.data) {
+			if (data <= root.data) {
 				cur = insert(root.left, data);
 				root.left = cur;
 			} else {
@@ -69,4 +69,7 @@ public class Utils {
 		}
 	}
 
+	public static void printf(String format, Object... arg) {
+		System.out.printf(format, arg);
+	}
 }
