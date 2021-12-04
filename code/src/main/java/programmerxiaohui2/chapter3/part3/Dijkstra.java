@@ -161,6 +161,22 @@ public class Dijkstra {
 		printPrevs(graph.vertexes, prevs, graph.vertexes.length - 1);
 	}
 
+
+	// 图
+	private static class Graph {
+		private final Vertex[] vertexes;
+		private final LinkedList<Edge>[] adj;
+
+		Graph(int size) {
+			//初始化顶点和邻接矩阵
+			this.vertexes = new Vertex[size];
+			this.adj = new LinkedList[size];
+			for (int i = 0; i < size; i++) {
+				adj[i] = new LinkedList<>();
+			}
+		}
+	}
+
 	//图的顶点
 	private static class Vertex {
 		String data;
@@ -181,19 +197,5 @@ public class Dijkstra {
 		}
 	}
 
-	// 图
-	private static class Graph {
-		private final Vertex[] vertexes;
-		private final LinkedList<Edge>[] adj;
-
-		Graph(int size) {
-			//初始化顶点和邻接矩阵
-			this.vertexes = new Vertex[size];
-			this.adj = new LinkedList[size];
-			for (int i = 0; i < size; i++) {
-				adj[i] = new LinkedList<>();
-			}
-		}
-	}
 
 }
