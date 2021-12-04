@@ -6,6 +6,8 @@ public class Leetcode337 {
 
 	private final int MAX_CURRENT_SUB_TREE = 0;
 	private final int MAX_LEFT_RIGHT_CHILD = 1;
+	private final int NOT_ROB = 0;
+	private final int ROB = 1;
 
 	public int rob(TreeNode root) {
 		return robResult(root)[MAX_CURRENT_SUB_TREE];
@@ -28,10 +30,6 @@ public class Leetcode337 {
 
 		return res;
 	}
-
-
-	private final int NOT_ROB = 0;
-	private final int ROB = 1;
 
 	public int rob2(TreeNode root) {
 		int[] result = robInternal(root);

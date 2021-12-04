@@ -4,41 +4,19 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class LeetCode96 {
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode() {
-		}
-
-		TreeNode(int val) {
-			this.val = val;
-		}
-
-		TreeNode(int val, TreeNode left, TreeNode right) {
-			this.val = val;
-			this.left = left;
-			this.right = right;
-		}
-
-		@Override
-		public String toString() {
-			return val + "";
-		}
-	}
-
 	public static void main(String[] args) {
 		LeetCode96 b96 = new LeetCode96();
 		List<TreeNode> treeNodes = b96.generateTrees(2);
 		System.out.println(treeNodes);
 	}
+
 	/* 主函数 */
 	public List<TreeNode> generateTrees(int n) {
 		if (n == 0) return new LinkedList<>();
 		// 构造闭区间 [1, n] 组成的 BST
 		return build(1, n);
 	}
+
 	/* 构造闭区间 [lo, hi] 组成的 BST */
 	List<TreeNode> build(int lo, int hi) {
 		List<TreeNode> res = new LinkedList<>();
@@ -66,6 +44,30 @@ public class LeetCode96 {
 		}
 
 		return res;
+	}
+
+	public class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode() {
+		}
+
+		TreeNode(int val) {
+			this.val = val;
+		}
+
+		TreeNode(int val, TreeNode left, TreeNode right) {
+			this.val = val;
+			this.left = left;
+			this.right = right;
+		}
+
+		@Override
+		public String toString() {
+			return val + "";
+		}
 	}
 
 }

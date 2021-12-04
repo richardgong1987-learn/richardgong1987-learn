@@ -4,6 +4,10 @@ import java.util.Arrays;
 
 public class Leetcode354 {
 
+	// envelopes = [[w, h], [w, h]...]
+	static final int FIRST = 0;
+	static final int SECOND = 1;
+
 	public static int lengthOfLIS(int[] nums) {
 		int[] top = new int[nums.length];
 		// 牌堆数初始化为 0
@@ -33,13 +37,9 @@ public class Leetcode354 {
 	}
 
 	public static void main(String[] args) {
-		int i = maxEnvelopes(new int[][]{{1,2},{2,3},{3,4},{4,5},{5,6},{5,5},{6,7},{7,8}}); //Russian doll is 3, [2,3] => [5,4] => [6,7]
+		int i = maxEnvelopes(new int[][]{{1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}, {5, 5}, {6, 7}, {7, 8}}); //Russian doll is 3, [2,3] => [5,4] => [6,7]
 		System.out.println(i);
 	}
-
-	// envelopes = [[w, h], [w, h]...]
-	static final int FIRST = 0;
-	static final int SECOND = 1;
 
 	public static int maxEnvelopes(int[][] envelopes) {
 		int n = envelopes.length;

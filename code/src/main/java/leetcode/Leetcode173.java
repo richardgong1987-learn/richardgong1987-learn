@@ -4,30 +4,6 @@ import java.util.Deque;
 import java.util.LinkedList;
 
 public class Leetcode173 {
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode() {
-		}
-
-		TreeNode(int val) {
-			this.val = val;
-		}
-
-		TreeNode(int val, TreeNode left, TreeNode right) {
-			this.val = val;
-			this.left = left;
-			this.right = right;
-		}
-
-		@Override
-		public String toString() {
-			return val + "";
-		}
-	}
-
 	Deque<TreeNode> helper = new LinkedList<>();
 
 	public Leetcode173(TreeNode root) {
@@ -55,5 +31,29 @@ public class Leetcode173 {
 			node = node.left;
 		}
 		return result.val;
+	}
+
+	public class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode() {
+		}
+
+		TreeNode(int val) {
+			this.val = val;
+		}
+
+		TreeNode(int val, TreeNode left, TreeNode right) {
+			this.val = val;
+			this.left = left;
+			this.right = right;
+		}
+
+		@Override
+		public String toString() {
+			return val + "";
+		}
 	}
 }

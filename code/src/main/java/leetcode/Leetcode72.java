@@ -33,22 +33,22 @@ public class Leetcode72 {
 
 				System.out.printf("""
 
-i=%s,j=%s,
-s1[(i-1)=%s]=%s,
-s2[(j-1)=%s]=%s,
-                  
-if=%s
-	dp[i=%s][j=%s] = dp[(i-1)=%s][(j-1)=%s];
-	dp[i=%s][j=%s]=%s                    
-else
-	dp[i=%s][j=%s] = min(
-	  dp[(i-1)=%s)][j=%s]+1=%s,
-	  dp[i=%s][(j-1)=%s]+1=%s,
-	  dp[(i-1)=%s][(j-1)=%s]+1=%s
-	);
-dp[i=%s][j=%s]=%s 			
-						                       								                       
-								""",
+								i=%s,j=%s,
+								s1[(i-1)=%s]=%s,
+								s2[(j-1)=%s]=%s,
+								                  
+								if=%s
+									dp[i=%s][j=%s] = dp[(i-1)=%s][(j-1)=%s];
+									dp[i=%s][j=%s]=%s                    
+								else
+									dp[i=%s][j=%s] = min(
+									  dp[(i-1)=%s)][j=%s]+1=%s,
+									  dp[i=%s][(j-1)=%s]+1=%s,
+									  dp[(i-1)=%s][(j-1)=%s]+1=%s
+									);
+								dp[i=%s][j=%s]=%s 			
+														                       								                       
+																""",
 						i, j,
 
 						i - 1, s1.charAt(i - 1),

@@ -35,19 +35,6 @@ public class LeetCode743 {
 	}
 
 	// 输入一个起点 start，计算从 start 到其他节点的最短距离
-	static class State {
-		// 图节点的 id
-		int id;
-		// 从 start 节点到当前节点的距离
-		int distFromStart;
-
-		State(int id, int distFromStart) {
-			this.id = id;
-			this.distFromStart = distFromStart;
-		}
-	}
-
-	// 输入一个起点 start，计算从 start 到其他节点的最短距离
 	int[] dijkstra(int start, List<int[]>[] graph) {
 		// 定义：distTo[i] 的值就是起点 start 到达节点 i 的最短路径权重
 		int[] distTo = new int[graph.length];
@@ -83,6 +70,19 @@ public class LeetCode743 {
 			}
 		}
 		return distTo;
+	}
+
+	// 输入一个起点 start，计算从 start 到其他节点的最短距离
+	static class State {
+		// 图节点的 id
+		int id;
+		// 从 start 节点到当前节点的距离
+		int distFromStart;
+
+		State(int id, int distFromStart) {
+			this.id = id;
+			this.distFromStart = distFromStart;
+		}
 	}
 
 }

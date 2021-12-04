@@ -4,36 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Leetcode297 {
+	String SEP = ",";
+	String NULL = "#";
+
 	public static void main(String[] args) {
 		String aa = "";
 	}
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode() {
-		}
-
-		TreeNode(int val) {
-			this.val = val;
-		}
-
-		TreeNode(int val, TreeNode left, TreeNode right) {
-			this.val = val;
-			this.left = left;
-			this.right = right;
-		}
-
-		@Override
-		public String toString() {
-			return val + "";
-		}
-	}
-
-
-	String SEP = ",";
-	String NULL = "#";
 
 	/* 将二叉树序列化为字符串 */
 	String serialize(TreeNode root) {
@@ -93,6 +69,30 @@ public class Leetcode297 {
 			}
 		}
 		return root;
+	}
+
+	public class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode() {
+		}
+
+		TreeNode(int val) {
+			this.val = val;
+		}
+
+		TreeNode(int val, TreeNode left, TreeNode right) {
+			this.val = val;
+			this.left = left;
+			this.right = right;
+		}
+
+		@Override
+		public String toString() {
+			return val + "";
+		}
 	}
 
 }

@@ -1,35 +1,14 @@
 package leetcode;
 
 public class Leetcode1373 {
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode() {
-		}
-
-		TreeNode(int val) {
-			this.val = val;
-		}
-
-		TreeNode(int val, TreeNode left, TreeNode right) {
-			this.val = val;
-			this.left = left;
-			this.right = right;
-		}
-
-		@Override
-		public String toString() {
-			return val + "";
-		}
-	}
 	// 全局变量，记录 BST 最大节点之和
 	int maxSum = 0;
+
 	public int maxSumBST(TreeNode root) {
 		traverse(root);
 		return maxSum;
 	}
+
 	int[] traverse(TreeNode root) {
 		// base case
 		if (root == null) {
@@ -64,5 +43,29 @@ public class Leetcode1373 {
 		/**************************/
 
 		return res;
+	}
+
+	public class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode() {
+		}
+
+		TreeNode(int val) {
+			this.val = val;
+		}
+
+		TreeNode(int val, TreeNode left, TreeNode right) {
+			this.val = val;
+			this.left = left;
+			this.right = right;
+		}
+
+		@Override
+		public String toString() {
+			return val + "";
+		}
 	}
 }

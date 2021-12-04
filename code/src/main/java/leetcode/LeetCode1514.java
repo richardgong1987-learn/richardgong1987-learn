@@ -21,18 +21,6 @@ public class LeetCode1514 {
 		return dijkstra(start, end, graph);
 	}
 
-	class State {
-		// 图节点的 id
-		int id;
-		// 从 start 节点到达当前节点的概率
-		double probFromStart;
-
-		State(int id, double probFromStart) {
-			this.id = id;
-			this.probFromStart = probFromStart;
-		}
-	}
-
 	double dijkstra(int start, int end, List<double[]>[] graph) {
 		// 定义：probTo[i] 的值就是节点 start 到达节点 i 的最大概率
 		double[] probTo = new double[graph.length];
@@ -76,5 +64,17 @@ public class LeetCode1514 {
 		}
 		// 如果到达这里，说明从 start 开始无法到达 end，返回 0
 		return 0.0;
+	}
+
+	class State {
+		// 图节点的 id
+		int id;
+		// 从 start 节点到达当前节点的概率
+		double probFromStart;
+
+		State(int id, double probFromStart) {
+			this.id = id;
+			this.probFromStart = probFromStart;
+		}
 	}
 }

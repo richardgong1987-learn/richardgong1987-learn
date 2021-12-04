@@ -1,30 +1,6 @@
 package leetcode;
 
 public class LeetCode108 {
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode() {
-		}
-
-		TreeNode(int val) {
-			this.val = val;
-		}
-
-		TreeNode(int val, TreeNode left, TreeNode right) {
-			this.val = val;
-			this.left = left;
-			this.right = right;
-		}
-
-		@Override
-		public String toString() {
-			return val + "";
-		}
-	}
-
 	public TreeNode sortedArrayToBST(int[] nums) {
 		if (nums == null || nums.length == 0) {
 			return null;
@@ -47,5 +23,29 @@ public class LeetCode108 {
 		root.right = constructBST(nums, mid + 1, hi);
 
 		return root;
+	}
+
+	public class TreeNode {
+		int val;
+		TreeNode left;
+		TreeNode right;
+
+		TreeNode() {
+		}
+
+		TreeNode(int val) {
+			this.val = val;
+		}
+
+		TreeNode(int val, TreeNode left, TreeNode right) {
+			this.val = val;
+			this.left = left;
+			this.right = right;
+		}
+
+		@Override
+		public String toString() {
+			return val + "";
+		}
 	}
 }

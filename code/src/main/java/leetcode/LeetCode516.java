@@ -3,25 +3,6 @@ package leetcode;
 import java.util.Arrays;
 
 public class LeetCode516 {
-	public int longestPalindromeSubseq2(String s) {
-		String text1 = s;
-		String text2 = new StringBuilder(s).reverse().toString();
-		int n = s.length();
-		int[][] dp = new int[n + 1][n + 1];
-
-		for (int i = 1; i < n; i++) {
-			for (int j = 1; j < n; j++) {
-				if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
-					dp[i][j] = dp[i - 1][j - 1] + 1;
-				} else {
-					dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
-				}
-			}
-		}
-
-		return dp[n][n];
-	}
-
 	static int longestPalindromeSubseq(String s) {
 		int n = s.length();
 		// dp 数组全部初始化为 0
@@ -58,5 +39,24 @@ public class LeetCode516 {
 		for (int[] db : dbs) {
 			System.out.println(Arrays.toString(db));
 		}
+	}
+
+	public int longestPalindromeSubseq2(String s) {
+		String text1 = s;
+		String text2 = new StringBuilder(s).reverse().toString();
+		int n = s.length();
+		int[][] dp = new int[n + 1][n + 1];
+
+		for (int i = 1; i < n; i++) {
+			for (int j = 1; j < n; j++) {
+				if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
+					dp[i][j] = dp[i - 1][j - 1] + 1;
+				} else {
+					dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
+				}
+			}
+		}
+
+		return dp[n][n];
 	}
 }

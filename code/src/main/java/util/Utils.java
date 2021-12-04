@@ -5,13 +5,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Utils {
+	static String SEP = ",";
+	static String NULL = "null";
+
 	// for debug
 	private static void print(int cnt, String str) {
 		System.out.println(" ".repeat(cnt) + str);
 	}
-
-	static String SEP = ",";
-	static String NULL = "null";
 
 	/* 将字符串反序列化为二叉树结构 */
 	public static TreeNode deserialize(String data) {

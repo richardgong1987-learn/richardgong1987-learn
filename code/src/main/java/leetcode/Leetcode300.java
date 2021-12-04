@@ -42,6 +42,7 @@ public class Leetcode300 {
 	public static void main(String[] args) {
 		int i = lengthOfLIS(new int[]{10, 9, 2, 5, 3, 7, 101, 18});
 	}
+
 	static int lengthOfLIS(int[] nums) {
 		int[] dp = new int[nums.length];
 		// base case：dp 数组全都初始化为 1

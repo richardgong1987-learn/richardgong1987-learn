@@ -47,8 +47,7 @@ public class Dijkstra {
 				}
 				int weight = edge.weight;
 				int preDistance = distances[edge.index];
-				if ((weight != Integer.MAX_VALUE) &&
-						((minDistanceFromStart + weight) < preDistance)) {
+				if ((weight != Integer.MAX_VALUE) && ((minDistanceFromStart + weight) < preDistance)) {
 					distances[edge.index] = minDistanceFromStart + weight;
 				}
 			}
@@ -103,8 +102,7 @@ public class Dijkstra {
 				}
 				int weight = edge.weight;
 				int preDistance = distances[edge.index];
-				if ((weight != Integer.MAX_VALUE) &&
-						((minDistanceFromStart + weight) < preDistance)) {
+				if ((weight != Integer.MAX_VALUE) && ((minDistanceFromStart + weight) < preDistance)) {
 					distances[edge.index] = minDistanceFromStart + weight;
 
 					prevs[edge.index] = minDistanceIndex;
@@ -153,6 +151,16 @@ public class Dijkstra {
 		graph.adj[6].add(new Edge(5, 3));
 	}
 
+	public static void main(String[] args) {
+		Graph graph = new Graph(7);
+		initGraph(graph);
+		int[] distances = dijkstra(graph, 0);
+		System.out.println(distances[6]);
+		System.out.println("输出完整路径：");
+		int[] prevs = dijkstraV2(graph, 0);
+		printPrevs(graph.vertexes, prevs, graph.vertexes.length - 1);
+	}
+
 	//图的顶点
 	private static class Vertex {
 		String data;
@@ -175,27 +183,17 @@ public class Dijkstra {
 
 	// 图
 	private static class Graph {
-		private Vertex[] vertexes;
-		private LinkedList<Dijkstra.Edge>[] adj;
+		private final Vertex[] vertexes;
+		private final LinkedList<Edge>[] adj;
 
 		Graph(int size) {
 			//初始化顶点和邻接矩阵
-			vertexes = new Vertex[size];
-			adj = new LinkedList[size];
-			for (int i = 0; i < adj.length; i++) {
-				adj[i] = new LinkedList<Dijkstra.Edge>();
+			this.vertexes = new Vertex[size];
+			this.adj = new LinkedList[size];
+			for (int i = 0; i < size; i++) {
+				adj[i] = new LinkedList<>();
 			}
 		}
-	}
-
-	public static void main(String[] args) {
-		Graph graph = new Graph(7);
-		initGraph(graph);
-		int[] distances = dijkstra(graph, 0);
-		System.out.println(distances[6]);
-		System.out.println("输出完整路径：");
-		int[] prevs = dijkstraV2(graph, 0);
-		printPrevs(graph.vertexes, prevs, graph.vertexes.length - 1);
 	}
 
 }

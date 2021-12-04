@@ -6,15 +6,8 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class TreeWithDepth {
-	class State {
-		// 记录 node 节点的深度
-		int depth;
-		TreeNode node;
-
-		State(TreeNode node, int depth) {
-			this.depth = depth;
-			this.node = node;
-		}
+	public static void printf(String format, Object... arg) {
+		System.out.printf(format, arg);
 	}
 
 	// 输入一棵二叉树的根节点，遍历这棵二叉树所有节点
@@ -42,7 +35,14 @@ public class TreeWithDepth {
 		}
 	}
 
-	public static void printf(String format, Object... arg) {
-		System.out.printf(format, arg);
+	class State {
+		// 记录 node 节点的深度
+		int depth;
+		TreeNode node;
+
+		State(TreeNode node, int depth) {
+			this.depth = depth;
+			this.node = node;
+		}
 	}
 }

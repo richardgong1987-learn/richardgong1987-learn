@@ -1,45 +1,46 @@
 package ch6.part9;
 
 public class RemoveKDigtal {
-    public int divide(int dividend, int divisor) {
-        if (dividend == 0x80000000 && divisor == -1){
-            return Integer.MAX_VALUE;
-        }
+	public static void main(String[] args) {
+		RemoveKDigtal removeKDigtal = new RemoveKDigtal();
+		int divide = removeKDigtal.divide(150, 20);
+		System.out.println(divide);
+	}
 
-        int negative = 2;
-        if (dividend > 0) {
-            negative--;
-            dividend = -dividend;
-        }
+	public int divide(int dividend, int divisor) {
+		if (dividend == 0x80000000 && divisor == -1) {
+			return Integer.MAX_VALUE;
+		}
 
-        if (divisor > 0) {
-            negative--;
-            divisor = -divisor;
-        }
+		int negative = 2;
+		if (dividend > 0) {
+			negative--;
+			dividend = -dividend;
+		}
 
-        int result = divideCore(dividend, divisor);
-        return negative == 1 ? -result : result;
-    }
+		if (divisor > 0) {
+			negative--;
+			divisor = -divisor;
+		}
 
-    private int divideCore(int dividend, int divisor) {
-        int result = 0;
-        while (dividend <= divisor) {
-            int value = divisor;
-            int quotient = 1;
-            while (value >= 0xc0000000 && dividend <= value + value) {
-                quotient += quotient;
-                value += value;
-            }
+		int result = divideCore(dividend, divisor);
+		return negative == 1 ? -result : result;
+	}
 
-            result += quotient;
-            dividend -= value;
-        }
+	private int divideCore(int dividend, int divisor) {
+		int result = 0;
+		while (dividend <= divisor) {
+			int value = divisor;
+			int quotient = 1;
+			while (value >= 0xc0000000 && dividend <= value + value) {
+				quotient += quotient;
+				value += value;
+			}
 
-        return result;
-    }
-    public static void main(String[] args) {
-        RemoveKDigtal removeKDigtal = new RemoveKDigtal();
-        int divide = removeKDigtal.divide(150, 20);
-        System.out.println(divide);
-    }
+			result += quotient;
+			dividend -= value;
+		}
+
+		return result;
+	}
 }

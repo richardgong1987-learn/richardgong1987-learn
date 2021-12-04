@@ -7,14 +7,14 @@ import java.util.Map;
 
 public class Leetcode437 {
 
+	int count = 0;
+
 	public int pathSum(TreeNode root, int sum) {
 		Map<Integer, Integer> map = new HashMap<>();
 		map.put(0, 1);
 		helper(root, 0, sum, map);
 		return count;
 	}
-
-	int count = 0;
 
 	public void helper(TreeNode root, int curSum, int target, Map<Integer, Integer> map) {
 		// corner case

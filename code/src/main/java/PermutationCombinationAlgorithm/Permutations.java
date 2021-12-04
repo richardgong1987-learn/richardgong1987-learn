@@ -45,7 +45,7 @@ public class Permutations {
 			minResult.add(nums[i]);
 			//debug start
 			count++;
-			print("visited=" + Arrays.toString(visited) + ",i=" + i + ",minResult=" + minResult.toString());
+			print("visited=" + Arrays.toString(visited) + ",i=" + i + ",minResult=" + minResult);
 			//debug end
 
 			dfs(nums, visited, minResult, outPut);
@@ -54,7 +54,7 @@ public class Permutations {
 
 			//debug start
 			--count;
-			print("##visited=" + Arrays.toString(visited) + ",i=" + i + ",minResult=" + minResult.toString());
+			print("##visited=" + Arrays.toString(visited) + ",i=" + i + ",minResult=" + minResult);
 			//debug end
 		}
 	}

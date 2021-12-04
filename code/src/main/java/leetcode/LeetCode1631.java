@@ -5,12 +5,12 @@ import java.util.*;
 public class LeetCode1631 {
 
 
+	// 方向数组，上下左右的坐标偏移量
+	static int[][] dirs = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
+
 	public static void main(String[] args) {
 
 	}
-
-	// 方向数组，上下左右的坐标偏移量
-	static int[][] dirs = new int[][]{{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
 	// 返回坐标 (x, y) 的上下左右相邻坐标
 	static List<int[]> adj(int[][] matrix, int x, int y) {
@@ -29,19 +29,6 @@ public class LeetCode1631 {
 			neighbors.add(new int[]{nx, ny});
 		}
 		return neighbors;
-	}
-
-	public static class State {
-		// 矩阵中的一个位置
-		int x, y;
-		// 从起点 (0, 0) 到当前位置的最小体力消耗（距离）
-		int effortFromStart;
-
-		State(int x, int y, int effortFromStart) {
-			this.x = x;
-			this.y = y;
-			this.effortFromStart = effortFromStart;
-		}
 	}
 
 	// Dijkstra 算法，计算 (0, 0) 到 (m - 1, n - 1) 的最小体力消耗
@@ -102,5 +89,18 @@ public class LeetCode1631 {
 		}
 		// 正常情况不会达到这个 return
 		return -1;
+	}
+
+	public static class State {
+		// 矩阵中的一个位置
+		int x, y;
+		// 从起点 (0, 0) 到当前位置的最小体力消耗（距离）
+		int effortFromStart;
+
+		State(int x, int y, int effortFromStart) {
+			this.x = x;
+			this.y = y;
+			this.effortFromStart = effortFromStart;
+		}
 	}
 }
