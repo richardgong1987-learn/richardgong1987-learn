@@ -129,24 +129,31 @@ public class Dijkstra {
 		graph.vertexes[4] = new Vertex("E");
 		graph.vertexes[5] = new Vertex("F");
 		graph.vertexes[6] = new Vertex("G");
+
 		graph.adj[0].add(new Edge(1, 5));
 		graph.adj[0].add(new Edge(2, 2));
+
 		graph.adj[1].add(new Edge(0, 5));
 		graph.adj[1].add(new Edge(3, 1));
 		graph.adj[1].add(new Edge(4, 6));
+
 		graph.adj[2].add(new Edge(0, 2));
 		graph.adj[2].add(new Edge(3, 6));
 		graph.adj[2].add(new Edge(5, 8));
+
 		graph.adj[3].add(new Edge(1, 1));
 		graph.adj[3].add(new Edge(2, 6));
 		graph.adj[3].add(new Edge(4, 1));
 		graph.adj[3].add(new Edge(5, 2));
+
 		graph.adj[4].add(new Edge(1, 6));
 		graph.adj[4].add(new Edge(3, 1));
 		graph.adj[4].add(new Edge(6, 7));
+
 		graph.adj[5].add(new Edge(2, 8));
 		graph.adj[5].add(new Edge(3, 2));
 		graph.adj[5].add(new Edge(6, 3));
+
 		graph.adj[6].add(new Edge(4, 7));
 		graph.adj[6].add(new Edge(5, 3));
 	}
@@ -156,9 +163,9 @@ public class Dijkstra {
 		initGraph(graph);
 		int[] distances = dijkstra(graph, 0);
 		System.out.println(distances[6]);
-		System.out.println("输出完整路径：");
-		int[] prevs = dijkstraV2(graph, 0);
-		printPrevs(graph.vertexes, prevs, graph.vertexes.length - 1);
+//		System.out.println("输出完整路径：");
+//		int[] prevs = dijkstraV2(graph, 0);
+//		printPrevs(graph.vertexes, prevs, graph.vertexes.length - 1);
 	}
 
 
