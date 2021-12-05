@@ -122,6 +122,8 @@ public class Dijkstra {
 	}
 
 	private static void initGraph(Graph graph) {
+
+
 		graph.vertexes[0] = new Vertex("A");
 		graph.vertexes[1] = new Vertex("B");
 		graph.vertexes[2] = new Vertex("C");

@@ -30,9 +30,7 @@ public class LeetCode1514 {
 		probTo[start] = 1;
 
 		// 优先级队列，probFromStart 较大的排在前面
-		Queue<State> pq = new PriorityQueue<>((a, b) -> {
-			return Double.compare(b.probFromStart, a.probFromStart);
-		});
+		Queue<State> pq = new PriorityQueue<>((a, b) -> Double.compare(b.probFromStart, a.probFromStart));
 
 		// 从起点 start 开始进行 BFS
 		pq.offer(new State(start, 1));
