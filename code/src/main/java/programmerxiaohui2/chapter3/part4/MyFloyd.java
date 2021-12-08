@@ -3,7 +3,7 @@ package programmerxiaohui2.chapter3.part4;
 import util.Utils;
 
 public class MyFloyd {
-	static int INF = 9999999;
+	static int INF = Integer.MAX_VALUE;
 
 	static void floyd(int[][] graph) {
 		int n = graph.length;
@@ -13,6 +13,11 @@ public class MyFloyd {
 		for (int k = 0; k < n; k++) {
 			for (int i = 0; i < n; i++) {
 				for (int j = 0; j < n; j++) {
+
+					if (graph[i][k] == INF || graph[k][j] == INF) {
+						continue;
+					}
+
 					if (graph[i][k] + graph[k][j] < graph[i][j]) {
 						graph[i][j] = graph[i][k] + graph[k][j];
 					}
