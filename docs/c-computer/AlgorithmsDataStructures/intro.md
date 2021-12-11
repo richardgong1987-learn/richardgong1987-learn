@@ -10,4 +10,4 @@ sidebar_position: 1
 
 ## [剑指offer专项训练](OfferOrientedAlgorithms-main/README)
 
-## [BitMap](bitmap/README)
+## [BitMap](bitmap/readme)
