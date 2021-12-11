@@ -15,13 +15,6 @@ public class MyBitmap {
 		this.words = new long[(getWordIndex(size - 1) + 1)];
 	}
 
-	public static void main(String[] args) {
-		MyBitmap bitMap = new MyBitmap(128);
-		bitMap.setBit(126);
-		bitMap.setBit(75);
-		System.out.println(bitMap.getBit(126));
-		System.out.println(bitMap.getBit(78));
-	}
 
 	/**
 	 * 判断bitmap某一位的状态
@@ -57,6 +50,14 @@ public class MyBitmap {
 	private int getWordIndex(int bitIndex) {
 		//右移6位，相当于除以64
 		return bitIndex >> 6;
+	}
+
+	public static void main(String[] args) {
+		MyBitmap bitMap = new MyBitmap(128);
+		bitMap.setBit(126);
+		bitMap.setBit(75);
+		System.out.println(bitMap.getBit(126));
+		System.out.println(bitMap.getBit(78));
 	}
 
 }
