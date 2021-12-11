@@ -9,7 +9,7 @@ module.exports = {
     baseUrl: '/richardgong1987-learn/',
     organizationName: 'richardgong1987-learn', // Usually your GitHub org/user name.
     projectName: 'richardgong1987-learn', // Usually your repo name.
-    onBrokenLinks: 'throw',
+    onBrokenLinks: 'warn',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
     themeConfig: {
