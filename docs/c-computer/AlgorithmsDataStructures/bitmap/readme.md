@@ -263,4 +263,4 @@ public class BitMap {
 
 [bitmap压缩算法对比](https://bug1874.com/03-22-2017/bitmap-compress-algorithm.html)
 
-https://blog.csdn.net/njpjsoftdev/article/details/52955638https://blog.csdn.net/njpjsoftdev/article/details/52955638
+https://blog.csdn.net/baichoufei90/article/details/106210233
