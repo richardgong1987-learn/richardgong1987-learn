@@ -261,6 +261,6 @@ public class BitMap {
 
 常用的bitmap压缩算法有Oracle’s BBC、WAH、Concise、Roaring。前三者都是基于run-length encoding的思路，RLE的思路是说对于重复出现的值，通过值加上重复出现的次数表示，从而到达数据的压缩
 
-[bitmap压缩算法对比](https://bug1874.com/03-22-2017/bitmap-compress-algorithm.html)
+
 
 https://blog.csdn.net/baichoufei90/article/details/106210233
