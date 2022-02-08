@@ -10,6 +10,6 @@ sidebar_position: 0
 
 3. ### [java服务架构](c-java-architect/intro)
 
-4. ### [kafka问题](kafka/readme)
+4. ### [kafka问题](kafka/)
 
-5. ### [RocketMQ 问题](rocketmq/readme)
+5. ### [RocketMQ 问题](rocketmq/)
