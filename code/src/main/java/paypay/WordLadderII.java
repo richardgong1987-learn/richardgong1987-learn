@@ -29,7 +29,6 @@ public class WordLadderII {
 		return shortestPathArray;
 	}
 
-
 	public void bfs(String beginWord) {
 		Queue<String> queue = new LinkedList<>();
 		queue.offer(beginWord);
@@ -66,7 +65,7 @@ public class WordLadderII {
 			for (char c = 'a'; c <= 'z'; c++) {
 				letters[i] = c;
 				String word = new String(letters);
-				if (letter != c && wordHashSet.contains(word)) {
+				if (wordHashSet.contains(word)) {
 					neighborsList.add(word);
 				}
 			}
