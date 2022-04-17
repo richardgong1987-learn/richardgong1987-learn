@@ -1,23 +1,29 @@
 package codesignal;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class BoxBlurImage {
 	/**
 	 * This function will calculate the value x
 	 * * 	  (i.e. blurred pixel value) for each 3 * 3 blur image
 	 */
-	public static int square_matrix(List<ArrayList<Integer>> square) {
+	public static int squareMatrix(int[][] square) {
 		var totSum = 0;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				// Calculate sum of all the pixels in 3 * 3 matrix
-				totSum += square.get(i).get(j);
+				totSum += square[i][j];
 			}
 		}
 		return totSum / 9; // return the average of the sum of pixels
+	}
+
+	public static int getUnitSum(int[][] square, int rPointer, int cPointer) {
+		int[][] sm = new int[3][3];
+		for (int i = 0; i < 3; i++) {
+			System.arraycopy(square[rPointer + i], cPointer, sm[i], 0, 3);
+		}
+		return squareMatrix(sm);
 	}
 
 	/**
@@ -25,72 +31,24 @@ public class BoxBlurImage {
 	 * image for given n * n image.
 	 */
 	public static int[][] boxBlur(int[][] image) {
-		// This will store the 3 * 3 matrix
-		// which will be used to find its blurred pixel
-		var square = new ArrayList<ArrayList<Integer>>();
-
-		// This will store one row of a 3 * 3 matrix and
-		// will be appended in square
-		var squareRow = new ArrayList<Integer>();
-
-		// Here we will store the resulting blurred
-		// pixels possible in one row
-		// and will append this in the blur_img
-		var blurRow = new ArrayList<Integer>();
-
-		// This is the resulting blurred image
-		var blurImg = new ArrayList<ArrayList<Integer>>();
-
 		// number of rows in the given image
 		var nRows = image.length;
-
 		// number of columns in the given image
 		var nCol = image[0].length;
 
-		// rp is row pointer and cp is column pointer
-		int rp = 0;
-		int cp = 0;
+		int[][] result = new int[nRows - 3 + 1][nCol - 3 + 1];
 
-		// This while loop will be used to
-		// calculate all the blurred pixel in the first row
-		while (rp <= nRows - 3) {
-			while (cp <= nCol - 3) {
-				for (int i = rp; i < rp + 3; i++) {
-					for (int j = cp; j < cp + 3; j++) {
-						// append all the pixels in a row of 3 * 3 matrix
-						squareRow.add(image[i][j]);
-					}
-
-					// append the row in the square i.e. 3 * 3 matrix
-					square.add(squareRow);
-					squareRow = new ArrayList<>();
-				}
-				// calculate the blurred pixel for given 3 * 3 matrix
-				// i.e. square and append it in blur_row
-				blurRow.add(square_matrix(square));
-				square = new ArrayList<>();
-
-				// increase the column pointer
-				cp = cp + 1;
+		for (int rPointer = 0; rPointer <= nRows - 3; rPointer++) {
+			int[] colResult = new int[nCol - 3 + 1];
+			for (int cPointer = 0; cPointer <= nCol - 3; cPointer++) {
+				colResult[cPointer] = getUnitSum(image, rPointer, cPointer);
 			}
+			result[rPointer] = colResult;
+		}
 
-			// append the blur_row in blur_image
-			blurImg.add(blurRow);
-			blurRow = new ArrayList<>();
-			rp = rp + 1; // increase row pointer
-			cp = 0; // start column pointer from 0 again
-		}
-		int[][] ints = new int[blurImg.size()][blurImg.get(0).size()];
-		for (int i = 0; i < blurImg.size(); i++) {
-			ArrayList<Integer> row = blurImg.get(i);
-			for (int j = 0; j < row.size(); j++) {
-				Integer integer = row.get(j);
-				ints[i][j] = integer;
-			}
-		}
-		// Return the resulting pixel matrix
-		return ints;
+		return result;
 	}
+
 
 	public static void main(String[] args) {
 		{
