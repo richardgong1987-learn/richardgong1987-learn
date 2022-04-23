@@ -13,17 +13,16 @@ public class StringsRearrangement {
 		Deque<String> tries = loadString(inputArray);
 		LinkedList<String> matches = new LinkedList<>();
 		matches.offer(tries.poll());
-		int len = matches.getFirst().length();
 		while (!tries.isEmpty()) {
-			int numOfTries = tries.size();
 			String first = matches.getFirst();
 			String last = matches.getLast();
+			int numOfTries = tries.size();
 			for (int t = 0; t < numOfTries; t++) {
 				String actual = tries.poll();
-				if (exactOneDiff(first, actual, len)) {
+				if (exactOneDiff(first, actual)) {
 					matches.offerFirst(actual);
 					break;
-				} else if (exactOneDiff(last, actual, len)) {
+				} else if (exactOneDiff(last, actual)) {
 					matches.offerLast(actual);
 					break;
 				} else {
@@ -38,8 +37,9 @@ public class StringsRearrangement {
 	}
 
 
-	boolean exactOneDiff(String target, String actual, int len) {
+	boolean exactOneDiff(String target, String actual) {
 		int diff = 0;
+		int len = target.length();
 		for (int ch = 0; ch < len; ch++) {
 			if (target.charAt(ch) != actual.charAt(ch)) diff++;
 		}
