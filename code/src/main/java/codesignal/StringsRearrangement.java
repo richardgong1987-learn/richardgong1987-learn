@@ -6,13 +6,7 @@ import java.util.LinkedList;
 public class StringsRearrangement {
 	public static void main(String[] args) {
 		StringsRearrangement stringsRearrangement = new StringsRearrangement();
-		stringsRearrangement.solution(new String[]{"aba", "bbb", "bab"});
-
-		Deque<String> temp = new LinkedList<>();
-		temp.offer("a");
-		temp.offer("b");
-		temp.offer("c");
-		System.out.println(temp);
+		stringsRearrangement.solution(new String[]{"ab", "bb", "aa"});
 	}
 
 	boolean solution(String[] inputArray) {
