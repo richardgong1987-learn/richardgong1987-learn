@@ -1,4 +1,4 @@
-package codesignal;
+package codesignal.bit;
 
 public class killKthBit {
 	int solution(int n, int k) {

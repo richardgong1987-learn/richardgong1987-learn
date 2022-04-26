@@ -1,4 +1,4 @@
-package codesignal;
+package codesignal.bit;
 
 public class RangeBitCount {
 	// Function to get no of set bits in the

@@ -1,4 +1,4 @@
-package codesignal;
+package codesignal.bit;
 
 public class ReverseBits {
 	public static void main(String[] args) {
