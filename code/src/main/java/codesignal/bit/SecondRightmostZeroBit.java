@@ -1,18 +1,18 @@
 package codesignal.bit;
 
 public class SecondRightmostZeroBit {
-	int secondRightmostZeroBit(int n) {
+	static int secondRightmostZeroBit(int n) {
 		return ~(n |= -~n) & -~n;
 	}
 
-	int secondRightmostZeroBit2(int n) {
-		return ~(n | n + 1) & (n | n + 1) + 1;
+	static int secondRightmostZeroBit2(int n) {
+		return (~(n | (n + 1))) & ((n | (n + 1)) + 1);
 	}
 
 	public static void main(String[] args) {
 //		SecondRightmostZeroBit s = new SecondRightmostZeroBit();
 //		System.out.println(s.solution(37));
-		System.out.println( ~13);
+		System.out.println(secondRightmostZeroBit2(15));
 	}
 
 	int solution(int n) {
