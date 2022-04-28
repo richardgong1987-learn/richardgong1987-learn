@@ -2,20 +2,25 @@ package codesignal;
 
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class StringsRearrangement {
 	public static void main(String[] args) {
 		StringsRearrangement stringsRearrangement = new StringsRearrangement();
-		stringsRearrangement.solution(new String[]{"ab", "bb", "aa"});
+		boolean solution = stringsRearrangement.solution(new String[]{"abc", "bef", "bcc", "bec", "bbc", "bdc"});
+//		System.out.println(solution);
 	}
 
 	boolean solution(String[] inputArray) {
 		Deque<String> tries = loadString(inputArray);
 		LinkedList<String> matches = new LinkedList<>();
 		matches.offer(tries.poll());
+
 		while (!tries.isEmpty()) {
 			String first = matches.getFirst();
 			String last = matches.getLast();
+			printList(tries, matches, first, last);
 			int numOfTries = tries.size();
 			for (int t = 0; t < numOfTries; t++) {
 				String actual = tries.poll();
@@ -54,4 +59,20 @@ public class StringsRearrangement {
 		return temp;
 	}
 
+	private void printList(Queue tries, List matches, String first, String last) {
+		System.out.print("tries:[");
+		for (Object o : tries) {
+			System.out.print(o + ",");
+		}
+		System.out.print("]");
+		System.out.print(" matches:[");
+		for (Object o : matches) {
+			System.out.print(o + ",");
+		}
+		System.out.print("]");
+		System.out.println();
+		System.out.println("first:" + first);
+		System.out.println("last:" + last);
+		System.out.println("--------------------------------");
+	}
 }

@@ -24,7 +24,6 @@ public class IsCycle {
 	public static class Graph {
 		private int V;
 		private List<List<Integer>> adj;
-
 		public Graph(int V) {
 			this.V = V;
 			this.adj = new ArrayList<>(V);
@@ -32,7 +31,6 @@ public class IsCycle {
 				adj.add(new LinkedList<>());
 			}
 		}
-
 		private boolean checkIsCycle(int i, boolean[] visited, boolean[] recStack) {
 			if (recStack[i]) {
 				return true;
@@ -55,7 +53,6 @@ public class IsCycle {
 		public void addEdge(int from, int to) {
 			adj.get(from).add(to);
 		}
-
 		public boolean isCycle() {
 			boolean[] visited = new boolean[V];
 			boolean[] recStack = new boolean[V];
