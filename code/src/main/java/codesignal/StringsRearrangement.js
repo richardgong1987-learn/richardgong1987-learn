@@ -37,5 +37,6 @@ function solution(strArr) {
     return true;
 }
 
-let rest = ["abc", "bef", "bcc", "bec", "bbc", "bdc"];
+let strArr = [];
+let matches = ["bef", "bec", "bcc", "bdc", "bbc", "abc"];
 console.log(solution(rest));
