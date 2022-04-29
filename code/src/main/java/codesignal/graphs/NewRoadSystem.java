@@ -1,4 +1,4 @@
-package codesignal;
+package codesignal.graphs;
 
 public class NewRoadSystem {
 	static boolean solution(boolean[][] roadRegister) {
