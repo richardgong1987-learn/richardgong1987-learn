@@ -29,4 +29,24 @@ public class FinancialCrisis {
 
 		return ans;
 	}
+
+	int lineUp(String commands) {
+		int x = 0;
+		int count = 0;
+		for (String currentLetter : commands.split("")) {
+			if ("A".equals(currentLetter)) {
+				x += 2;
+			} else if ("L".equals(currentLetter)) {
+				x += 1;
+			} else {
+				x -= 1;
+			}
+			if (x % 2 == 0) {
+				count++;
+			}
+		}
+
+		return count;
+	}
+
 }
