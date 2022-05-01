@@ -14,17 +14,4 @@ public class MakeArrayConsecutive2 {
 		return difference - (statues.length - 1);
 	}
 
-	int solution(int n) {
-		int count = 0;
-		int i;
-		int m;
-
-		for (i = 1, m = i; m < n; i++, m += i) {
-			if ((n - m) % (i + 1) == 0) {
-				count++;
-			}
-		}
-		return count;
-	}
-
 }
